@@ -32,6 +32,19 @@ PY
 
 For discovery, start from the curated [`INDEX.md`](INDEX.md) or the official [`llms.txt`](llms.txt).
 
+## RAG Starter Kit
+
+Local semantic search over the docs:
+
+```bash
+pip install chromadb
+python rag.py build                    # index Markdown pages into ./rag_chroma
+python rag.py query "your question"    # retrieve top-k relevant chunks
+python rag.py info                     # corpus stats
+```
+
+Re-running `build` is idempotent and incremental.
+
 ## Updating
 
 Re-mirror from the official index:
