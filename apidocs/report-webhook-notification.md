@@ -32,7 +32,7 @@ Report generation status callback
 ```json
 {
   "id": "report_068581fd-ff7c-447f-8b16-a2ac00ebf98c",
-  "url": "https://transaction-report-files.s3.us-west-2.amazonaws.com/675bdaf542c2f448122e71d5/LIVE_TRANSACTIONS_REPORT_068581fd-ff7c-447f-8b16-a2ac00ebf98c_20250423040155_20250627040155.csv?AWSAccessKeyId=AKIAWDX4EPHWLBHIQYEQ&Expires=1751548921&Signature=nng1ZrXLGtVc7xSJbIigUXabPWs%3D",
+  "url": "https://transaction-report-files.s3.us-west-2.amazonaws.com/675bdaf542c2f448122e71d5/LIVE_TRANSACTIONS_REPORT_068581fd-ff7c-447f-8b16-a2ac00ebf98c_20250423040155_20250627040155.csv?AWSAccessKeyId=AKIA_REPLACE_ME&Expires=1751548921&Signature=nng1ZrXLGtVc7xSJbIigUXabPWs%3D",
   "type": "TRANSACTIONS",
   "filter": {
     "from": "2025-04-23T04:01:55.574Z",
