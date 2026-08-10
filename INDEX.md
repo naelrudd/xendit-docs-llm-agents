@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 337
+Pages: 338
 
 | Path | First heading |
 |---|---|
@@ -92,6 +92,7 @@ Pages: 337
 | [docs/7-eleven.md](https://docs.xendit.co/docs/7-eleven.md) | 7-Eleven |
 | [docs/accepting-payments-for-sub-accounts.md](https://docs.xendit.co/docs/accepting-payments-for-sub-accounts.md) | Accept payments for sub-accounts |
 | [docs/account-security-overview.md](https://docs.xendit.co/docs/account-security-overview.md) | Overview |
+| [docs/account-verification-enumerations.md](https://docs.xendit.co/docs/account-verification-enumerations.md) | Account Verification Enumerations |
 | [docs/activate-payment-channels.md](https://docs.xendit.co/docs/activate-payment-channels.md) | Activate payment channels |
 | [docs/activate-xenplatform.md](https://docs.xendit.co/docs/activate-xenplatform.md) | Activate xenPlatform |
 | [docs/add-withdrawal-bank-account.md](https://docs.xendit.co/docs/add-withdrawal-bank-account.md) | Add withdrawal bank account |

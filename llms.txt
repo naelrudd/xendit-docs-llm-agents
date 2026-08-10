@@ -224,6 +224,7 @@
 - [Payouts for sub-accounts](https://docs.xendit.co/docs/payouts-for-sub-accounts.md)
 - [Consolidated Reports](https://docs.xendit.co/docs/consolidated-reports.md)
 - [Monitoring transactions](https://docs.xendit.co/docs/xenplatform-monitoring-transactions.md)
+- [Account Verification Enumerations](https://docs.xendit.co/docs/account-verification-enumerations.md)
 - [Overview](https://docs.xendit.co/docs/reports-overview.md)
 - [Balance report](https://docs.xendit.co/docs/balance-report.md)
 - [Transactions report](https://docs.xendit.co/docs/transactions-report.md)
