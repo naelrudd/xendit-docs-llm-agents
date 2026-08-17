@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 338
+Pages: 339
 
 | Path | First heading |
 |---|---|
@@ -135,6 +135,7 @@ Pages: 338
 | [docs/card-verification.md](https://docs.xendit.co/docs/card-verification.md) |  |
 | [docs/cards-2.md](https://docs.xendit.co/docs/cards-2.md) |  |
 | [docs/cards-5.md](https://docs.xendit.co/docs/cards-5.md) |  |
+| [docs/cards-8.md](https://docs.xendit.co/docs/cards-8.md) | Cards |
 | [docs/cards-address-verification-service.md](https://docs.xendit.co/docs/cards-address-verification-service.md) |  |
 | [docs/cards-api-overview.md](https://docs.xendit.co/docs/cards-api-overview.md) |  |
 | [docs/cards-authentication-3ds2.md](https://docs.xendit.co/docs/cards-authentication-3ds2.md) |  |
