@@ -1,6 +1,6 @@
 # Docs — Full corpus (single-file)
 Source: https://docs.xendit.co/llms.txt
-Pages: 339
+Pages: 345
 
 ========================================================================
 
@@ -18,6 +18,250 @@ documentation at the source URLs listed in `llms.txt`.
 - No affiliation with, or endorsement by, the vendor is implied.
 - Source URLs are preserved in `llms.txt` and in each page path.
 - If you are the copyright holder and want this taken down, open an issue.
+
+========================================================================
+
+# apidocs/account-holder-capabilities-notification-webhook.md
+
+========================================================================
+
+---
+title: "Account holder capabilities notification webhook"
+slug: "account-holder-capabilities-notification-webhook"
+updated: 2026-07-09T07:00:03Z
+published: 2026-07-09T07:00:03Z
+canonical: "docs.xendit.co/account-holder-capabilities-notification-webhook"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Account holder capabilities notification webhook
+
+Post/your_account_holder_capabilities_webhook_url
+
+These events will be sent when there is an update on a sub-account's payment activation status
+
+Body parameters<select class='api-response-data' aria-label='Media type'><option value='8a9eab67-2dbe-4f25-9c92-54baa057c4f1'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='7cb21b51-f31e-4cf5-9a5f-878c20cefb62'>Resubmission Required</option>
+</select>Resubmission Required
+
+```json
+{
+  "event": "account_holder.capabilities.status",
+  "created": "2021-01-01T10:00:00Z",
+  "business_id": "5fe2b0137b7d62542fe6d7de",
+  "data": {
+    "id": "57fb4e076fa3fa296b7f5a97",
+    "created": "2021-01-01T10:00:00Z",
+    "updated": "2021-01-01T10:00:00Z",
+    "capabilities": [
+      {
+        "type": "MONEY_IN",
+        "channel_code": "GCASH",
+        "activated_at": "2021-01-01T10:00:00Z",
+        "verified_at": "2021-01-01T10:00:00Z",
+        "requested_at": "2021-01-01T10:00:00Z",
+        "status": "RESUBMISSION_REQUIRED",
+        "failure_reason": "Your website URL is not related to your business"
+      }
+    ]
+  }
+}
+```
+
+Expand Allobject  eventstring    
+
+Event that occurred for this webhook
+
+Valid values[
+  "account_holder.capabilities.status"
+]Exampleaccount_holder.capabilities.status
+business_idstring    
+
+ID of your Account, use this in the for-user-id header to create transactions on behalf of your Account
+
+createdstring    
+
+Timestamp of when the webhook was sent
+
+updatedstring    
+
+Timestamp of when the webhook was updated
+
+dataobject  idstring    
+
+The unique ID of an Account Holder object
+
+createdstring    
+
+Timestamp of when the webhook was sent
+
+updatedstring    
+
+Timestamp of when the webhook was updated
+
+capabilities Array of object (account_holder_capability_response)   object  
+
+An object containing the details of the Account Holder capabilities activation process
+
+typestring    
+channel_codestring    
+statusstring    Valid values[
+  "LIVE",
+  "VERIFICATION_IN_PROGRESS",
+  "RESUBMISSION_REQUIRED",
+  "DECLINED"
+]
+failure_reasonstring    
+activated_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+verified_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+requested_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+Responses200
+
+OK
+
+400
+
+Bad Request - Invalid webhook payload
+
+========================================================================
+
+# apidocs/account-holder-kyc-status-notification-webhook.md
+
+========================================================================
+
+---
+title: "Account holder KYC status notification webhook"
+slug: "account-holder-kyc-status-notification-webhook"
+updated: 2026-07-09T07:00:03Z
+published: 2026-07-09T07:00:03Z
+canonical: "docs.xendit.co/account-holder-kyc-status-notification-webhook"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Account holder KYC status notification webhook
+
+Post/your_account_holder_kyc_webhook_url
+
+These events will be sent when there is an update on a sub-account's KYC status
+
+Body parameters<select class='api-response-data' aria-label='Media type'><option value='bb13655b-cb87-4380-ba2e-b97b3cd2a971'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='7aeca7b9-09a7-4408-87f7-ecb77eae9135'>Account Holder KYC Callback</option>
+</select>Account Holder KYC Callback
+
+```json
+{
+  "event": "account_holder.kyc.status",
+  "created": "2021-01-01T10:00:00Z",
+  "business_id": "5fe2b0137b7d62542fe6d7de",
+  "data": {
+    "id": "57fb4e076fa3fa296b7f5a97",
+    "created": "2021-01-01T10:00:00Z",
+    "updated": "2021-01-01T10:00:00Z",
+    "kyc": {
+      "status": "PASSED",
+      "verified_at": "2021-01-01T10:00:00Z",
+      "requested_at": "2021-01-01T10:00:00Z",
+      "kyc_passed_at": "2021-01-01T10:00:00Z"
+    }
+  }
+}
+```
+
+Expand Allobject  eventstring    
+
+Event that occurred for this webhook
+
+Valid values[
+  "account_holder.kyc.status"
+]Exampleaccount_holder.kyc.status
+business_idstring    
+
+ID of your Account, use this in the for-user-id header to create transactions on behalf of your Account
+
+createdstring    
+
+Timestamp of when the webhook was sent
+
+updatedstring    
+
+Timestamp of when the webhook was updated
+
+dataobject  idstring    
+
+The unique ID of an Account Holder object
+
+createdstring    
+
+Timestamp of when the webhook was sent
+
+updatedstring    
+
+Timestamp of when the webhook was updated
+
+kycobject (account_holder_kyc_response)  statusstring    Valid values[
+  "PASSED",
+  "FAILED",
+  "RESUBMISSION_REQUIRED"
+]
+requested_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+kyc_passed_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+verified_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+capabilities Array of object (account_holder_capability_response)   object  
+
+An object containing the details of the Account Holder capabilities activation process
+
+typestring    
+channel_codestring    
+statusstring    Valid values[
+  "LIVE",
+  "VERIFICATION_IN_PROGRESS",
+  "RESUBMISSION_REQUIRED",
+  "DECLINED"
+]
+failure_reasonstring    
+activated_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+verified_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+requested_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+Responses200
+
+OK
+
+400
+
+Bad Request - Invalid webhook payload
 
 ========================================================================
 
@@ -5895,6 +6139,888 @@ The Xendit Hosted Checkout URL will be invalid.
   }
 }
 ````
+
+========================================================================
+
+# apidocs/create-account-holder.md
+
+========================================================================
+
+---
+title: "Create account holder"
+slug: "create-account-holder"
+updated: 2026-07-09T07:00:03Z
+published: 2026-07-09T07:00:03Z
+canonical: "docs.xendit.co/create-account-holder"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Create account holder
+
+Post/account_holders
+
+An Account Holder represents the legal entity that holds the Xendit Account that is created in your Platform. You will need to [Create an Account](/apidocs/create-account-holder#create-account) to link the account holder with. The details that you need to provide in the request depend on the Account holders' legal entity type. Please refer to [this guide](https://docs.xendit.co/docs/xenplatform-account-holder-api) for a comprehensive step-by-step as well as requirements for each country and entity type.
+
+You will need to use [Update Account](/update-a-xenplatform-account) API to link the Account Holder to the xenPlatform Account before the verification can begin.
+
+> You will need the Account Holder `Write` API key permission to perform this request
+
+SecurityHTTPType basic
+
+Body parameters<select class='api-response-data' aria-label='Media type'><option value='a7e37ec8-c888-41ea-96fa-a486d9228ca5'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='bfb7aec5-dbc6-4f18-9fd8-6199de9fb9ec'>Philippines Corporation</option>
+</select>Philippines Corporation
+
+```json
+{
+  "business_detail": {
+    "type": "CORPORATION",
+    "legal_name": "My Store Inc.",
+    "trading_name": "John's Store",
+    "description": "description here",
+    "industry_category": "ELECTRONICS_AND_ACCESSORIES",
+    "date_of_registration": "2023-02-02",
+    "country_of_operation": "PH"
+  },
+  "individual_details": [
+    {
+      "given_names": "John",
+      "surname": "Doe",
+      "phone_number": "+63021234567",
+      "email": "test@xendit.co",
+      "nationality": "PH",
+      "place_of_birth": "PH",
+      "date_of_birth": "2000-02-02",
+      "gender": "MALE",
+      "type": "PIC",
+      "role": "owner"
+    }
+  ],
+  "address": {
+    "country": "PH",
+    "city": "Caloocan",
+    "street_line1": "9th St",
+    "street_line2": "Building 101",
+    "district": "1st district",
+    "sub_district": "2nd subdistrict",
+    "province_state": "Metro Manila",
+    "postal_code": "1400"
+  },
+  "kyc_documents": [
+    {
+      "type": "SEC_CERTIFICATE_REGISTRATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ARTICLES_OF_INCORPORATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "NOTARIZED_SECRETARY_CERTIFICATE_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "LATEST_GIS_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ACR_OR_IMMIGRANT_COR_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "SERVICE_AGREEMENT_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    }
+  ],
+  "website_url": "https://xendit.co",
+  "phone_number": "+6381234567",
+  "email": "test@xendit.co"
+}
+```
+
+Expand Allobject  business_detailobject (business_detail)  Required
+
+An object containing the business detail of the Account Holder
+
+typestring    
+
+The entity type of the business
+
+Valid values[
+  "CORPORATION",
+  "PARTNERSHIP",
+  "SOLE_PROPRIETORSHIP",
+  "INDIVIDUAL",
+  "FOREIGN",
+  "FOREIGN_SEC",
+  "FOREIGN_NONSEC"
+]
+legal_namestring    
+
+Legal name of the business. This must match the documentation submitted.
+
+trading_namestring    
+
+Trading or brand name of the business. This will be the name that appears to endpayer on payment page.
+
+descriptionstring    
+
+Description of the business. Please specify what business model or goods and services that the business provide. Max 1000 characters.
+
+industry_categorystring    
+
+One of our accepted Industry Category Codes depending on your entity type and country of operation.
+
+Refer to the list of [accepted industry category codes here](https://docs.xendit.co/docs/create-verification-requests#list-of-accepted-industry-categories)
+
+date_of_registrationstring  (date)    
+
+Business registration date in YYYY-MM-DD
+
+country_of_operationstring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+
+individual_details Array of object (individual_detail)   Requiredobject  
+
+An object containing the individual details of the Account Holder. This could be the details of the business owner, director etc.
+
+typestring    Required
+
+At least one individual with the type `PIC` (Person in Charge) is required. You may submit multiple PICs for your business in this object. A minimum 1 Incorporator and 1 PIC is required when they need to activate Cards capabilities.
+
+Valid values[
+  "PIC",
+  "Incorporator"
+]
+rolestring    Required
+
+This role specifies the role of the PIC or Incorporator. E.g. Owner, Director, Administrator.
+
+given_namesstring    Required
+
+First and middle name (if any) of the account holder
+
+Max length255
+surnamestring    Required
+
+Surname or family name of the account holder
+
+Max length255
+phone_numberstring    Required
+
+The contact number of the Account Holder in `E.164` format. This may also be a landline.
+
+Max length30
+emailstring    Required
+
+The email address of the account holder
+
+Max length255
+nationalitystring    Required
+
+Country code for customer's nationality (ISO 3166-2 Country Code)
+
+place_of_birthstring    
+
+City or other relevant location of the account holder's birth place
+
+date_of_birthstring  (date)    
+
+Date of birth of the customer in YYYY-MM-DD
+
+genderstring    
+
+The gender of the account holder
+
+Valid values[
+  "MALE",
+  "FEMALE",
+  "OTHER"
+]
+tax_identification_numberstring    
+
+Tax Identification Number of the account holder. This parameter is required when they need to activate Cards capabilities with USD or recurring capabilities.
+
+Please see more details [here](https://docs.xendit.co/docs/activate-payment-channels)
+
+addressobject (address)  
+
+An address object.
+
+countrystring    Required
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    Required
+
+City, village or town
+
+province_statestring    Required
+
+Province, state or region
+
+street_line1string    Required
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    Required
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    Required
+
+District
+
+sub_districtstring    Required
+
+Sub-district
+
+postal_codestring    Required
+
+Zip or postal code
+
+addressobject (address)  Required
+
+An address object.
+
+countrystring    Required
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    Required
+
+City, village or town
+
+province_statestring    Required
+
+Province, state or region
+
+street_line1string    Required
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    Required
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    Required
+
+District
+
+sub_districtstring    Required
+
+Sub-district
+
+postal_codestring    Required
+
+Zip or postal code
+
+kyc_documents Array of object (kyc_document)   Requiredobject  
+
+A KYC document file for Account Holder verification
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+typestring    
+
+The type of the legal or KYC requirements document
+
+Refer to the list of [Required KYC Documents for all countries here](https://docs.xendit.co/docs/create-verification-requests#requirements-by-country-and-entity-type)
+
+expires_atstring    
+
+Expiry date of the document if relevant. Format `YYYY-MM-DD`
+
+file_idstring    
+
+The file ID returned by the Upload API
+
+website_urlstring  (website)    Required
+
+A valid website associated with the business
+
+Max length255Examplemystore.com
+phone_numberstring  (phone)    Required
+
+A valid phone number associated with the business
+
+Max length30Example62123456789
+emailstring  (email)    Required
+
+A valid email address associated with the object
+
+Max length255Exampletest@example.co
+
+Responses200<select class='api-response-data' aria-label='Media type'><option value='9f196e4c-d0e2-49f9-894f-f78ae04bcf97'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='0dc85921-0201-4e18-be16-20a9eac6f849'>Philippines Corporation</option>
+</select>Philippines Corporation
+
+```json
+{
+  "id": "4376b7b0-1c44-46be-8640-828f79cdc8be",
+  "business_detail": {
+    "type": "CORPORATION",
+    "legal_name": "My Store Inc.",
+    "trading_name": "John's Store",
+    "description": "description here",
+    "industry_category": "ELECTRONICS_AND_ACCESSORIES",
+    "date_of_registration": "2023-02-02",
+    "country_of_operation": "PH"
+  },
+  "individual_details": [
+    {
+      "given_names": "John",
+      "surname": "Doe",
+      "phone_number": "+63021234567",
+      "email": "test@xendit.co",
+      "nationality": "PH",
+      "place_of_birth": "PH",
+      "date_of_birth": "2000-02-02",
+      "gender": "MALE",
+      "type": "PIC",
+      "role": "owner"
+    }
+  ],
+  "address": {
+    "country": "PH",
+    "city": "Caloocan",
+    "street_line1": "9th St",
+    "street_line2": "Building 101",
+    "district": "1st district",
+    "sub_district": "2nd subdistrict",
+    "province_state": "Metro Manila",
+    "postal_code": "1400"
+  },
+  "kyc_documents": [
+    {
+      "type": "SEC_CERTIFICATE_REGISTRATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ARTICLES_OF_INCORPORATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "NOTARIZED_SECRETARY_CERTIFICATE_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "LATEST_GIS_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ACR_OR_IMMIGRANT_COR_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "SERVICE_AGREEMENT_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    }
+  ],
+  "website_url": "https://xendit.co",
+  "phone_number": "+6381234567",
+  "email": "test@xendit.co",
+  "kyc": {
+    "status": "NOT_VERIFIED"
+  },
+  "created_at": "2023-03-30T11:41:57.881Z",
+  "updated_at": "2023-03-30T11:44:01.122Z"
+}
+```
+
+Expand Allobject  idstring    
+
+The unique ID of an Account Holder object
+
+business_detailobject (business_detail)  
+
+An object containing the business detail of the Account Holder
+
+typestring    
+
+The entity type of the business
+
+Valid values[
+  "CORPORATION",
+  "PARTNERSHIP",
+  "SOLE_PROPRIETORSHIP",
+  "INDIVIDUAL",
+  "FOREIGN",
+  "FOREIGN_SEC",
+  "FOREIGN_NONSEC"
+]
+legal_namestring    
+
+Legal name of the business. This must match the documentation submitted.
+
+trading_namestring    
+
+Trading or brand name of the business. This will be the name that appears to endpayer on payment page.
+
+descriptionstring    
+
+Description of the business. Please specify what business model or goods and services that the business provide. Max 1000 characters.
+
+industry_categorystring    
+
+One of our accepted Industry Category Codes depending on your entity type and country of operation.
+
+Refer to the list of [accepted industry category codes here](https://docs.xendit.co/docs/create-verification-requests#list-of-accepted-industry-categories)
+
+date_of_registrationstring  (date)    
+
+Business registration date in YYYY-MM-DD
+
+country_of_operationstring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+
+individual_details Array of object (individual_detail)   object  
+
+An object containing the individual details of the Account Holder. This could be the details of the business owner, director etc.
+
+typestring    
+
+At least one individual with the type `PIC` (Person in Charge) is required. You may submit multiple PICs for your business in this object. A minimum 1 Incorporator and 1 PIC is required when they need to activate Cards capabilities.
+
+Valid values[
+  "PIC",
+  "Incorporator"
+]
+rolestring    
+
+This role specifies the role of the PIC or Incorporator. E.g. Owner, Director, Administrator.
+
+given_namesstring    
+
+First and middle name (if any) of the account holder
+
+Max length255
+surnamestring    
+
+Surname or family name of the account holder
+
+Max length255
+phone_numberstring    
+
+The contact number of the Account Holder in `E.164` format. This may also be a landline.
+
+Max length30
+emailstring    
+
+The email address of the account holder
+
+Max length255
+nationalitystring    
+
+Country code for customer's nationality (ISO 3166-2 Country Code)
+
+place_of_birthstring    
+
+City or other relevant location of the account holder's birth place
+
+date_of_birthstring  (date)    
+
+Date of birth of the customer in YYYY-MM-DD
+
+genderstring    
+
+The gender of the account holder
+
+Valid values[
+  "MALE",
+  "FEMALE",
+  "OTHER"
+]
+tax_identification_numberstring    
+
+Tax Identification Number of the account holder. This parameter is required when they need to activate Cards capabilities with USD or recurring capabilities.
+
+Please see more details [here](https://docs.xendit.co/docs/activate-payment-channels)
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+kyc_documents Array of object (kyc_document)   object  
+
+A KYC document file for Account Holder verification
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+typestring    
+
+The type of the legal or KYC requirements document
+
+Refer to the list of [Required KYC Documents for all countries here](https://docs.xendit.co/docs/create-verification-requests#requirements-by-country-and-entity-type)
+
+expires_atstring    
+
+Expiry date of the document if relevant. Format `YYYY-MM-DD`
+
+file_idstring    
+
+The file ID returned by the Upload API
+
+website_urlstring  (website)    
+
+A valid website associated with the business
+
+Max length255Examplemystore.com
+phone_numberstring  (phone)    
+
+A valid phone number associated with the business
+
+Max length30Example62123456789
+emailstring  (email)    
+
+A valid email address associated with the object
+
+Max length255Exampletest@example.co
+kycobject  statusstring    Valid values[
+  "NOT_VERIFIED",
+  "VERIFIED"
+]
+
+created_atstring  (date-time)    
+
+Timestamp of when the object was created
+
+updated_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+400
+
+Validation error
+
+<select class='api-response-data' aria-label='Media type'><option value='71d444f9-84be-44bc-8122-214c34220467'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='1fd960ec-1fff-492e-8f7d-798a15592387'>API_VALIDATION_ERROR</option>
+</select>API_VALIDATION_ERROR
+
+```json
+{
+  "error_code": "API_VALIDATION_ERROR",
+  "message": "Inputs are failing validation. The errors field contains details about which fields are violating validation.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Inputs are failing validation. The errors field contains details about which fields are violating validation.
+
+error_codestring    Valid values[
+  "API_VALIDATION_ERROR",
+  "INVALID_CONFIGURATION",
+  "INVALID_JSON_FORMAT",
+  "TYPE_AND_CONFIGURATION_CONFLICT",
+  "INVALID_SOURCE_OR_DESTINATION_ERROR",
+  "INSUFFICIENT_BALANCE",
+  "INVALID_FEE_AMOUNT",
+  "DUPLICATE_ERROR",
+  "INVALID_AMOUNT",
+  "INSUFFICIENT_ACCOUNT_HOLDER_DATA",
+  "MISMATCH_PAYLOAD_FOR_REFERENCE",
+  "INVALID_URL_FORMAT"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+401
+
+Validation error
+
+<select class='api-response-data' aria-label='Media type'><option value='80a9615d-077b-4466-8f1e-a65e991b9e9c'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='7e6946e4-43f0-4175-b40c-6311b030210d'>INVALID_API_KEY</option>
+</select>INVALID_API_KEY
+
+```json
+{
+  "error_code": "INVALID_API_KEY",
+  "message": "The API key format is invalid",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Invalid API key
+
+error_codestring    Valid values[
+  "INVALID_API_KEY"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+403
+
+Validation error
+
+<select class='api-response-data' aria-label='Media type'><option value='c3cafe6e-922c-4b08-8b2f-51b95ba206b8'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='f36888db-b4c3-4487-a697-a023c2c14c6d'>REQUEST_FORBIDDEN_ERROR</option>
+<option value='c17eb3c5-0be9-4b14-ac42-9b33841b4ff0'>FEATURE_NOT_ACTIVATED</option>
+</select>REQUEST_FORBIDDEN_ERROR
+
+```json
+{
+  "error_code": "REQUEST_FORBIDDEN_ERROR",
+  "message": "The API key in use does not have the necessary permissions to perform the request. Please assign the xenPlatform Account Holder Write permission for the key.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+FEATURE_NOT_ACTIVATED
+
+```json
+{
+  "error_code": "FEATURE_NOT_ACTIVATED",
+  "message": "This feature has not been activated for your account",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Forbidden request
+
+error_codestring    Valid values[
+  "REQUEST_FORBIDDEN_ERROR",
+  "FEATURE_NOT_ACTIVATED",
+  "DUPLICATE_REFERENCE",
+  "XEN_PLATFORM_SUB_ACCOUNT_NOT_LIVE",
+  "API_KEY_ENVIRONMENT_NOT_MATCH",
+  "CHANNEL_ACTIVATION_IN_PROGRESS",
+  "CHANNEL_HAS_BEEN_ACTIVATED",
+  "KYC_VERIFICATION_IN_PROGRESS"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+404
+
+Not found error
+
+<select class='api-response-data' aria-label='Media type'><option value='b729a03b-230c-49c9-9c56-916bdfb23cec'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='6ca8708d-c9a9-44bf-a993-7b26259c531b'>DATA_NOT_FOUND</option>
+</select>DATA_NOT_FOUND
+
+```json
+{
+  "error_code": "DATA_NOT_FOUND",
+  "message": "Could not find payout with the corresponding ID. Please try again with a valid ID.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+The object being referenced does not exist
+
+error_codestring    Valid values[
+  "DESTINATION_ACCOUNT_NOT_FOUND",
+  "DATA_NOT_FOUND",
+  "CALLBACK_AUTHENTICATION_TOKEN_NOT_FOUND_ERROR"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+500
+
+Validation error
+
+<select class='api-response-data' aria-label='Media type'><option value='0daa9bf6-4fb4-4a82-b457-50950fdcbc65'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='8cb5be29-c124-4e4b-8da0-47a58cfb667a'>SERVER_ERROR</option>
+</select>SERVER_ERROR
+
+```json
+{
+  "error_code": "SERVER_ERROR",
+  "message": "Something unexpected, our developers have been notified to troubleshoot the issue",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Server error
+
+error_codestring    Valid values[
+  "SERVER_ERROR"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
 
 ========================================================================
 
@@ -18649,6 +19775,480 @@ The provided `id` does not exist. Please review the `id` and try again
 <select class='api-response-data' aria-label='Media type'><option value='3198b4e5-1059-4b49-962c-179986ac3ace'>application/json</option>
 </select>object  error_codestring    Valid values[
   "RATE_LIMIT_EXCEEDED"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+========================================================================
+
+# apidocs/get-account-holder.md
+
+========================================================================
+
+---
+title: "Get account holder"
+slug: "get-account-holder"
+updated: 2026-07-09T07:00:03Z
+published: 2026-07-09T07:00:03Z
+canonical: "docs.xendit.co/get-account-holder"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Get account holder
+
+Get/account_holders/{id}
+
+This endpoint retrieves a single Account Holder that was previously created. This is often used for checking the verification status of a Account Holder using the id from the Account Holder Object.
+
+> Use API key permission Account Holder `Read` to perform this request
+
+SecurityHTTPType basic
+
+Path parametersidstringRequiredExample4376b7b0-1c44-46be-8640-828f79cdc8be
+
+Responses200<select class='api-response-data' aria-label='Media type'><option value='7e7004a7-cff0-4cac-9713-d0ec0dc471b6'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='c35846ba-f59f-42b6-be5e-676900fbed29'>Philippines Corporation</option>
+</select>Philippines Corporation
+
+```json
+{
+  "id": "4376b7b0-1c44-46be-8640-828f79cdc8be",
+  "business_detail": {
+    "type": "CORPORATION",
+    "legal_name": "My Store Inc.",
+    "trading_name": "John's Store",
+    "description": "description here",
+    "industry_category": "ELECTRONICS_AND_ACCESSORIES",
+    "date_of_registration": "2023-02-02",
+    "country_of_operation": "PH"
+  },
+  "individual_details": [
+    {
+      "given_names": "John",
+      "surname": "Doe",
+      "phone_number": "+63021234567",
+      "email": "test@xendit.co",
+      "nationality": "PH",
+      "place_of_birth": "PH",
+      "date_of_birth": "2000-02-02",
+      "gender": "MALE",
+      "type": "PIC",
+      "role": "owner"
+    }
+  ],
+  "address": {
+    "country": "PH",
+    "city": "Caloocan",
+    "street_line1": "9th St",
+    "street_line2": "Building 101",
+    "district": "1st district",
+    "sub_district": "2nd subdistrict",
+    "province_state": "Metro Manila",
+    "postal_code": "1400"
+  },
+  "kyc_documents": [
+    {
+      "type": "SEC_CERTIFICATE_REGISTRATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ARTICLES_OF_INCORPORATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "NOTARIZED_SECRETARY_CERTIFICATE_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "LATEST_GIS_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ACR_OR_IMMIGRANT_COR_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "SERVICE_AGREEMENT_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    }
+  ],
+  "website_url": "https://xendit.co",
+  "phone_number": "+6381234567",
+  "email": "test@xendit.co",
+  "kyc": {
+    "status": "NOT_VERIFIED"
+  },
+  "created_at": "2023-03-30T11:41:57.881Z",
+  "updated_at": "2023-03-30T11:44:01.122Z"
+}
+```
+
+Expand Allobject  idstring    
+
+The unique ID of an Account Holder object
+
+business_detailobject (business_detail)  
+
+An object containing the business detail of the Account Holder
+
+typestring    
+
+The entity type of the business
+
+Valid values[
+  "CORPORATION",
+  "PARTNERSHIP",
+  "SOLE_PROPRIETORSHIP",
+  "INDIVIDUAL",
+  "FOREIGN",
+  "FOREIGN_SEC",
+  "FOREIGN_NONSEC"
+]
+legal_namestring    
+
+Legal name of the business. This must match the documentation submitted.
+
+trading_namestring    
+
+Trading or brand name of the business. This will be the name that appears to endpayer on payment page.
+
+descriptionstring    
+
+Description of the business. Please specify what business model or goods and services that the business provide. Max 1000 characters.
+
+industry_categorystring    
+
+One of our accepted Industry Category Codes depending on your entity type and country of operation.
+
+Refer to the list of [accepted industry category codes here](https://docs.xendit.co/docs/create-verification-requests#list-of-accepted-industry-categories)
+
+date_of_registrationstring  (date)    
+
+Business registration date in YYYY-MM-DD
+
+country_of_operationstring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+
+individual_details Array of object (individual_detail)   object  
+
+An object containing the individual details of the Account Holder. This could be the details of the business owner, director etc.
+
+typestring    
+
+At least one individual with the type `PIC` (Person in Charge) is required. You may submit multiple PICs for your business in this object. A minimum 1 Incorporator and 1 PIC is required when they need to activate Cards capabilities.
+
+Valid values[
+  "PIC",
+  "Incorporator"
+]
+rolestring    
+
+This role specifies the role of the PIC or Incorporator. E.g. Owner, Director, Administrator.
+
+given_namesstring    
+
+First and middle name (if any) of the account holder
+
+Max length255
+surnamestring    
+
+Surname or family name of the account holder
+
+Max length255
+phone_numberstring    
+
+The contact number of the Account Holder in `E.164` format. This may also be a landline.
+
+Max length30
+emailstring    
+
+The email address of the account holder
+
+Max length255
+nationalitystring    
+
+Country code for customer's nationality (ISO 3166-2 Country Code)
+
+place_of_birthstring    
+
+City or other relevant location of the account holder's birth place
+
+date_of_birthstring  (date)    
+
+Date of birth of the customer in YYYY-MM-DD
+
+genderstring    
+
+The gender of the account holder
+
+Valid values[
+  "MALE",
+  "FEMALE",
+  "OTHER"
+]
+tax_identification_numberstring    
+
+Tax Identification Number of the account holder. This parameter is required when they need to activate Cards capabilities with USD or recurring capabilities.
+
+Please see more details [here](https://docs.xendit.co/docs/activate-payment-channels)
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+kyc_documents Array of object (kyc_document)   object  
+
+A KYC document file for Account Holder verification
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+typestring    
+
+The type of the legal or KYC requirements document
+
+Refer to the list of [Required KYC Documents for all countries here](https://docs.xendit.co/docs/create-verification-requests#requirements-by-country-and-entity-type)
+
+expires_atstring    
+
+Expiry date of the document if relevant. Format `YYYY-MM-DD`
+
+file_idstring    
+
+The file ID returned by the Upload API
+
+website_urlstring  (website)    
+
+A valid website associated with the business
+
+Max length255Examplemystore.com
+phone_numberstring  (phone)    
+
+A valid phone number associated with the business
+
+Max length30Example62123456789
+emailstring  (email)    
+
+A valid email address associated with the object
+
+Max length255Exampletest@example.co
+kycobject  statusstring    Valid values[
+  "NOT_VERIFIED",
+  "VERIFIED"
+]
+
+created_atstring  (date-time)    
+
+Timestamp of when the object was created
+
+updated_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+401
+
+Not found error
+
+<select class='api-response-data' aria-label='Media type'><option value='23830aba-d539-46a1-94d8-886ac0f67eca'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='98bf8244-e476-4623-bb8a-aea8b1d6ff56'>INVALID_API_KEY</option>
+</select>INVALID_API_KEY
+
+```json
+{
+  "error_code": "INVALID_API_KEY",
+  "message": "The API key is invalid",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Invalid API key
+
+error_codestring    Valid values[
+  "INVALID_API_KEY"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+403
+
+Forbidden error
+
+<select class='api-response-data' aria-label='Media type'><option value='811d2401-a3cb-40d3-81c2-c020c58faf56'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='0350fdc5-785b-4576-8629-cbd89781e79e'>REQUEST_FORBIDDEN_ERROR</option>
+</select>REQUEST_FORBIDDEN_ERROR
+
+```json
+{
+  "error_code": "REQUEST_FORBIDDEN_ERROR",
+  "message": "API key in use does not have necessary permissions to perform the request. Please assign the xenPlatform Account Holder Read permission for the key.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Forbidden request
+
+error_codestring    Valid values[
+  "REQUEST_FORBIDDEN_ERROR",
+  "FEATURE_NOT_ACTIVATED",
+  "DUPLICATE_REFERENCE",
+  "XEN_PLATFORM_SUB_ACCOUNT_NOT_LIVE",
+  "API_KEY_ENVIRONMENT_NOT_MATCH",
+  "CHANNEL_ACTIVATION_IN_PROGRESS",
+  "CHANNEL_HAS_BEEN_ACTIVATED",
+  "KYC_VERIFICATION_IN_PROGRESS"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+404
+
+Not found error
+
+<select class='api-response-data' aria-label='Media type'><option value='6aa68cad-b58b-4e9e-97e7-d1860f30426b'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='a76f6958-852b-4ee2-8be4-9e4cdb8bd286'>DATA_NOT_FOUND</option>
+</select>DATA_NOT_FOUND
+
+```json
+{
+  "error_code": "DATA_NOT_FOUND",
+  "message": "Could not find an account holder with the corresponding ID. Please try again with a valid ID.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+The object being referenced does not exist
+
+error_codestring    Valid values[
+  "DESTINATION_ACCOUNT_NOT_FOUND",
+  "DATA_NOT_FOUND",
+  "CALLBACK_AUTHENTICATION_TOKEN_NOT_FOUND_ERROR"
 ]
 messagestring    
 errors Array  OneOfstringstring
@@ -36807,6 +38407,802 @@ Xendit will send webhooks to this URL when plan or cycle status changes occur.
 
 ========================================================================
 
+# apidocs/update-account-holder.md
+
+========================================================================
+
+---
+title: "Update account holder"
+slug: "update-account-holder"
+updated: 2026-07-09T07:00:03Z
+published: 2026-07-09T07:00:03Z
+canonical: "docs.xendit.co/update-account-holder"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Update account holder
+
+Patch/account_holders/{id}
+
+Use the Update Account Holder endpoint to:
+
+1. Update your Account Holder information. This step may be needed when the your information and document submission is insufficient or invalid (e.g invalid website, blurry selfie, invalid ID, etc.).
+2. Activate a payment channel Capability on an Account Holder object associated with a sub-account
+
+You need to provide an URL to receive webhooks. Please specify your URL in [Webhook Settings](https://dashboard.xendit.co/settings/developers#callbacks) in the Xendit Dashboard.
+
+> You will need the Account Holder `Write` API key permission to perform this request.
+
+SecurityHTTPType basic
+
+Path parametersidstringRequiredExample4376b7b0-1c44-46be-8640-828f79cdc8be
+
+Body parameters<select class='api-response-data' aria-label='Media type'><option value='175baf1b-d53f-4e31-8618-2890f034ef3c'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='1d44aa91-2f93-4b49-ae72-ce195e2791bf'>Update Website</option>
+<option value='efb89345-6ed0-4d4a-8226-bcf6755b4483'>Update KYC Document</option>
+<option value='e88da3fd-d1de-4758-94e9-621744c9922b'>Activate Payment Channel Capabilities</option>
+</select>Update Website
+
+```json
+{
+  "website_url": "valid-marketplace.brand.com"
+}
+```
+
+Update KYC Document
+
+```json
+{
+  "kyc_documents": [
+    {
+      "country": "PH",
+      "type": "LATEST_GIS_DOCUMENT",
+      "file_id": "63f8719642f5856dc9feje7"
+    }
+  ]
+}
+```
+
+Activate Payment Channel Capabilities
+
+```json
+{
+  "capabilities": [
+    {
+      "type": "MONEY_IN",
+      "channel_code": "PH_CARDS"
+    },
+    {
+      "type": "MONEY_IN",
+      "channel_code": "GCASH"
+    }
+  ]
+}
+```
+
+Expand Allobject  business_detailobject (business_detail)  
+
+An object containing the business detail of the Account Holder
+
+typestring    
+
+The entity type of the business
+
+Valid values[
+  "CORPORATION",
+  "PARTNERSHIP",
+  "SOLE_PROPRIETORSHIP",
+  "INDIVIDUAL",
+  "FOREIGN",
+  "FOREIGN_SEC",
+  "FOREIGN_NONSEC"
+]
+legal_namestring    
+
+Legal name of the business. This must match the documentation submitted.
+
+trading_namestring    
+
+Trading or brand name of the business. This will be the name that appears to endpayer on payment page.
+
+descriptionstring    
+
+Description of the business. Please specify what business model or goods and services that the business provide. Max 1000 characters.
+
+industry_categorystring    
+
+One of our accepted Industry Category Codes depending on your entity type and country of operation.
+
+Refer to the list of [accepted industry category codes here](https://docs.xendit.co/docs/create-verification-requests#list-of-accepted-industry-categories)
+
+date_of_registrationstring  (date)    
+
+Business registration date in YYYY-MM-DD
+
+country_of_operationstring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+
+individual_details Array of object (individual_detail)   object  
+
+An object containing the individual details of the Account Holder. This could be the details of the business owner, director etc.
+
+typestring    Required
+
+At least one individual with the type `PIC` (Person in Charge) is required. You may submit multiple PICs for your business in this object. A minimum 1 Incorporator and 1 PIC is required when they need to activate Cards capabilities.
+
+Valid values[
+  "PIC",
+  "Incorporator"
+]
+rolestring    Required
+
+This role specifies the role of the PIC or Incorporator. E.g. Owner, Director, Administrator.
+
+given_namesstring    Required
+
+First and middle name (if any) of the account holder
+
+Max length255
+surnamestring    Required
+
+Surname or family name of the account holder
+
+Max length255
+phone_numberstring    Required
+
+The contact number of the Account Holder in `E.164` format. This may also be a landline.
+
+Max length30
+emailstring    Required
+
+The email address of the account holder
+
+Max length255
+nationalitystring    Required
+
+Country code for customer's nationality (ISO 3166-2 Country Code)
+
+place_of_birthstring    
+
+City or other relevant location of the account holder's birth place
+
+date_of_birthstring  (date)    
+
+Date of birth of the customer in YYYY-MM-DD
+
+genderstring    
+
+The gender of the account holder
+
+Valid values[
+  "MALE",
+  "FEMALE",
+  "OTHER"
+]
+tax_identification_numberstring    
+
+Tax Identification Number of the account holder. This parameter is required when they need to activate Cards capabilities with USD or recurring capabilities.
+
+Please see more details [here](https://docs.xendit.co/docs/activate-payment-channels)
+
+addressobject (address)  
+
+An address object.
+
+countrystring    Required
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    Required
+
+City, village or town
+
+province_statestring    Required
+
+Province, state or region
+
+street_line1string    Required
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    Required
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    Required
+
+District
+
+sub_districtstring    Required
+
+Sub-district
+
+postal_codestring    Required
+
+Zip or postal code
+
+addressobject (address)  
+
+An address object.
+
+countrystring    Required
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    Required
+
+City, village or town
+
+province_statestring    Required
+
+Province, state or region
+
+street_line1string    Required
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    Required
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    Required
+
+District
+
+sub_districtstring    Required
+
+Sub-district
+
+postal_codestring    Required
+
+Zip or postal code
+
+kyc_documents Array of object (kyc_document)   object  
+
+A KYC document file for Account Holder verification
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+typestring    
+
+The type of the legal or KYC requirements document
+
+Refer to the list of [Required KYC Documents for all countries here](https://docs.xendit.co/docs/create-verification-requests#requirements-by-country-and-entity-type)
+
+expires_atstring    
+
+Expiry date of the document if relevant. Format `YYYY-MM-DD`
+
+file_idstring    
+
+The file ID returned by the Upload API
+
+website_urlstring  (website)    
+
+A valid website associated with the business
+
+Max length255Examplemystore.com
+phone_numberstring  (phone)    
+
+A valid phone number associated with the business
+
+Max length30Example62123456789
+emailstring  (email)    
+
+A valid email address associated with the object
+
+Max length255Exampletest@example.co
+capabilities Array of object   object  typestring    Valid values[
+  "MONEY_IN"
+]
+channel_codestring    
+
+Responses200<select class='api-response-data' aria-label='Media type'><option value='0847ec3a-b527-4c13-9cf6-0445c4653853'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='d0b4672c-f74e-402d-b893-2e72cb063646'>Philippines Corporation</option>
+</select>Philippines Corporation
+
+```json
+{
+  "id": "4376b7b0-1c44-46be-8640-828f79cdc8be",
+  "business_detail": {
+    "type": "CORPORATION",
+    "legal_name": "My Store Inc.",
+    "trading_name": "John's Store",
+    "description": "description here",
+    "industry_category": "ELECTRONICS_AND_ACCESSORIES",
+    "date_of_registration": "2023-02-02",
+    "country_of_operation": "PH"
+  },
+  "individual_details": [
+    {
+      "given_names": "John",
+      "surname": "Doe",
+      "phone_number": "+63021234567",
+      "email": "test@xendit.co",
+      "nationality": "PH",
+      "place_of_birth": "PH",
+      "date_of_birth": "2000-02-02",
+      "gender": "MALE",
+      "type": "PIC",
+      "role": "owner"
+    }
+  ],
+  "address": {
+    "country": "PH",
+    "city": "Caloocan",
+    "street_line1": "9th St",
+    "street_line2": "Building 101",
+    "district": "1st district",
+    "sub_district": "2nd subdistrict",
+    "province_state": "Metro Manila",
+    "postal_code": "1400"
+  },
+  "kyc_documents": [
+    {
+      "type": "SEC_CERTIFICATE_REGISTRATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ARTICLES_OF_INCORPORATION_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "NOTARIZED_SECRETARY_CERTIFICATE_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "LATEST_GIS_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "ACR_OR_IMMIGRANT_COR_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    },
+    {
+      "type": "SERVICE_AGREEMENT_DOCUMENT",
+      "country": "PH",
+      "file_id": "63f8719642f5856dcb142bd2"
+    }
+  ],
+  "website_url": "https://xendit.co",
+  "phone_number": "+6381234567",
+  "email": "test@xendit.co",
+  "kyc": {
+    "status": "PASSED",
+    "requested_at": "2021-01-01T10:00:00Z",
+    "verified_at": "2021-01-02T10:00:00Z",
+    "kyc_passed_at": "2021-01-03T10:00:00Z"
+  },
+  "capabilities": [
+    {
+      "type": "MONEY_IN",
+      "channel_code": "GCASH",
+      "requested_at": "2021-01-01T10:00:00Z",
+      "verified_at": "2021-01-02T10:00:00Z",
+      "activated_at": "2021-01-03T10:00:00Z",
+      "status": "VERIFICATION_IN_PROGRESS"
+    }
+  ]
+}
+```
+
+Expand Allobject  business_detailobject (business_detail)  
+
+An object containing the business detail of the Account Holder
+
+typestring    
+
+The entity type of the business
+
+Valid values[
+  "CORPORATION",
+  "PARTNERSHIP",
+  "SOLE_PROPRIETORSHIP",
+  "INDIVIDUAL",
+  "FOREIGN",
+  "FOREIGN_SEC",
+  "FOREIGN_NONSEC"
+]
+legal_namestring    
+
+Legal name of the business. This must match the documentation submitted.
+
+trading_namestring    
+
+Trading or brand name of the business. This will be the name that appears to endpayer on payment page.
+
+descriptionstring    
+
+Description of the business. Please specify what business model or goods and services that the business provide. Max 1000 characters.
+
+industry_categorystring    
+
+One of our accepted Industry Category Codes depending on your entity type and country of operation.
+
+Refer to the list of [accepted industry category codes here](https://docs.xendit.co/docs/create-verification-requests#list-of-accepted-industry-categories)
+
+date_of_registrationstring  (date)    
+
+Business registration date in YYYY-MM-DD
+
+country_of_operationstring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+
+individual_details Array of object (individual_detail)   object  
+
+An object containing the individual details of the Account Holder. This could be the details of the business owner, director etc.
+
+typestring    
+
+At least one individual with the type `PIC` (Person in Charge) is required. You may submit multiple PICs for your business in this object. A minimum 1 Incorporator and 1 PIC is required when they need to activate Cards capabilities.
+
+Valid values[
+  "PIC",
+  "Incorporator"
+]
+rolestring    
+
+This role specifies the role of the PIC or Incorporator. E.g. Owner, Director, Administrator.
+
+given_namesstring    
+
+First and middle name (if any) of the account holder
+
+Max length255
+surnamestring    
+
+Surname or family name of the account holder
+
+Max length255
+phone_numberstring    
+
+The contact number of the Account Holder in `E.164` format. This may also be a landline.
+
+Max length30
+emailstring    
+
+The email address of the account holder
+
+Max length255
+nationalitystring    
+
+Country code for customer's nationality (ISO 3166-2 Country Code)
+
+place_of_birthstring    
+
+City or other relevant location of the account holder's birth place
+
+date_of_birthstring  (date)    
+
+Date of birth of the customer in YYYY-MM-DD
+
+genderstring    
+
+The gender of the account holder
+
+Valid values[
+  "MALE",
+  "FEMALE",
+  "OTHER"
+]
+tax_identification_numberstring    
+
+Tax Identification Number of the account holder. This parameter is required when they need to activate Cards capabilities with USD or recurring capabilities.
+
+Please see more details [here](https://docs.xendit.co/docs/activate-payment-channels)
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+addressobject (address)  
+
+An address object.
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+citystring    
+
+City, village or town
+
+province_statestring    
+
+Province, state or region
+
+street_line1string    
+
+Line 1 of street address e.g street number and name
+
+Max length255
+street_line2string    
+
+Line 2 of street address e.g building name or apartment number
+
+Max length255
+districtstring    
+
+District
+
+sub_districtstring    
+
+Sub-district
+
+postal_codestring    
+
+Zip or postal code
+
+kyc_documents Array of object (kyc_document)   object  
+
+A KYC document file for Account Holder verification
+
+countrystring    
+
+The country (based on ISO 3166-1 Alpha-2) of incorporation for a business, or the country of residence for an individual.
+
+Valid values[
+  "ID",
+  "PH",
+  "VN",
+  "MY",
+  "TH"
+]
+typestring    
+
+The type of the legal or KYC requirements document
+
+Refer to the list of [Required KYC Documents for all countries here](https://docs.xendit.co/docs/create-verification-requests#requirements-by-country-and-entity-type)
+
+expires_atstring    
+
+Expiry date of the document if relevant. Format `YYYY-MM-DD`
+
+file_idstring    
+
+The file ID returned by the Upload API
+
+website_urlstring  (website)    
+
+A valid website associated with the business
+
+Max length255Examplemystore.com
+phone_numberstring  (phone)    
+
+A valid phone number associated with the business
+
+Max length30Example62123456789
+emailstring  (email)    
+
+A valid email address associated with the object
+
+Max length255Exampletest@example.co
+capabilities Array of object (account_holder_capability_response)   object  
+
+An object containing the details of the Account Holder capabilities activation process
+
+typestring    
+channel_codestring    
+statusstring    Valid values[
+  "LIVE",
+  "VERIFICATION_IN_PROGRESS",
+  "RESUBMISSION_REQUIRED",
+  "DECLINED"
+]
+failure_reasonstring    
+activated_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+verified_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+requested_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+kycobject (account_holder_kyc_response)  statusstring    Valid values[
+  "PASSED",
+  "FAILED",
+  "RESUBMISSION_REQUIRED"
+]
+requested_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+kyc_passed_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+verified_atstring  (date-time)    
+
+Timestamp of when the object was updated
+
+400<select class='api-response-data' aria-label='Media type'><option value='e2ba529e-d2c7-4260-8073-84d017886631'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='1d24a1c7-74cd-4014-bfa5-b76b709e206d'>INSUFFICIENT_ACCOUNT_HOLDER_DATA</option>
+</select>INSUFFICIENT_ACCOUNT_HOLDER_DATA
+
+```json
+{
+  "error_code": "INSUFFICIENT_ACCOUNT_HOLDER_DATA",
+  "message": "The information in the Account Holder object is not sufficient to request activation for this payment channel. Please update the fields with the correct information.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Inputs are failing validation. The errors field contains details about which fields are violating validation.
+
+error_codestring    Valid values[
+  "API_VALIDATION_ERROR",
+  "INVALID_CONFIGURATION",
+  "INVALID_JSON_FORMAT",
+  "TYPE_AND_CONFIGURATION_CONFLICT",
+  "INVALID_SOURCE_OR_DESTINATION_ERROR",
+  "INSUFFICIENT_BALANCE",
+  "INVALID_FEE_AMOUNT",
+  "DUPLICATE_ERROR",
+  "INVALID_AMOUNT",
+  "INSUFFICIENT_ACCOUNT_HOLDER_DATA",
+  "MISMATCH_PAYLOAD_FOR_REFERENCE",
+  "INVALID_URL_FORMAT"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+403<select class='api-response-data' aria-label='Media type'><option value='be939cc5-8c4d-499b-a28d-e6ba4f51e039'>application/json</option>
+</select><select class='select-example' aria-label='Media type'><option value='d95a0569-eca9-4c34-93f9-6edf64e6ff11'>KYC_VERIFICATION_IN_PROGRESS</option>
+<option value='fcb86d8a-dbef-4dcb-a522-47988489062d'>CHANNEL_HAS_BEEN_ACTIVATED</option>
+</select>KYC_VERIFICATION_IN_PROGRESS
+
+```json
+{
+  "error_code": "KYC_VERIFICATION_IN_PROGRESS",
+  "message": "Account Holder cannot be updated while KYC verification is in progress, please try again when the verification process has been completed.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+CHANNEL_HAS_BEEN_ACTIVATED
+
+```json
+{
+  "error_code": "CHANNEL_HAS_BEEN_ACTIVATED",
+  "message": "The payment channel requested has already been activated for this account holder.",
+  "errors": [
+    "Detailed description here"
+  ]
+}
+```
+
+object  
+
+Forbidden request
+
+error_codestring    Valid values[
+  "REQUEST_FORBIDDEN_ERROR",
+  "FEATURE_NOT_ACTIVATED",
+  "DUPLICATE_REFERENCE",
+  "XEN_PLATFORM_SUB_ACCOUNT_NOT_LIVE",
+  "API_KEY_ENVIRONMENT_NOT_MATCH",
+  "CHANNEL_ACTIVATION_IN_PROGRESS",
+  "CHANNEL_HAS_BEEN_ACTIVATED",
+  "KYC_VERIFICATION_IN_PROGRESS"
+]
+messagestring    
+errors Array  OneOfstringstring
+objectobject
+
+========================================================================
+
 # apidocs/update-account.md
 
 ========================================================================
@@ -48066,6 +50462,297 @@ canonical: "docs.xendit.co/malaysia-business-documents"
 **Documents for businesses in Malaysia 🇲🇾**
 
 [Embedded content](https://airtable.com/embed/appaevUX6aDlWEuBQ/shre57g8sEBxCzave)
+
+========================================================================
+
+# docs/manage-disputes-via-api.md
+
+========================================================================
+
+---
+title: "Manage Disputes via API"
+slug: "manage-disputes-via-api"
+status: "custom"
+updated: 2026-08-20T09:29:10Z
+published: 2026-08-20T09:29:10Z
+canonical: "docs.xendit.co/manage-disputes-via-api"
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Manage Disputes via API
+
+### Prerequisites
+
+- A Xendit account with card or QR payment methods enabled.
+- A webhook endpoint registered to receive dispute events (see [Webhooks](/docs/manage-disputes-via-api#webhooks) below).
+- Your Secret API Key. Every request in this guide uses Xendit's standard API authentication: HTTP Basic Auth, with your Secret API Key as the username and an empty password, over HTTPS. This is the same scheme used across all Xendit merchant-facing APIs; see the [Quick setup guide](https://docs.xendit.co/apidocs/quick-setup) for details.
+- Running a xenPlatform business? See the platform note under [Webhooks](/docs/manage-disputes-via-api#webhooks) before you integrate sub-account disputes.
+
+---
+
+## How disputes reach you
+
+Disputes reach you through **webhooks**, not polling. You'll be notified the moment a dispute is raised, and again at every status change.
+
+```
+Dispute raised
+   → webhook: dispute.action_required
+      → you decide: challenge or accept
+         → challenge: POST /evidences (submit evidence) → POST /challenge → webhook: dispute.under_review → webhook: dispute.won / dispute.lost
+         → accept: POST /accept → webhook: dispute.lost
+```
+
+Each webhook payload gives you the `id` you'll use for every action below, plus `payment_id` and `reference_id` to match the dispute to your own order records.
+
+### Dispute statuses
+
+The Disputes API (webhook payloads and the optional GET endpoint) returns these as uppercase values; the Dashboard shows them in sentence case.
+
+| Status (API value) | Shown as | What it means |
+| --- | --- | --- |
+| `ACTION_REQUIRED` | Action required | A dispute has been raised. Review it and decide whether to challenge or accept before `due_date`. |
+| `UNDER_REVIEW` | Under review | You've challenged the dispute. Your evidence is being reviewed by the card network or payment scheme. |
+| `WON` | Won | The dispute was resolved in your favor. |
+| `LOST` | Lost | The dispute was resolved against you, or you accepted it. |
+
+### Status reasons
+
+`status_reason` adds context to a status change. It's nullable, and most reasons pair with a terminal status (`WON` or `LOST`), except `NEED_MORE_INFORMATION`.
+
+| Reason | Meaning |
+| --- | --- |
+| `EXCEEDED_DEADLINE` | You didn't respond before the deadline, so the dispute defaulted against you. |
+| `ACCEPTED` | You accepted the dispute rather than challenging it. |
+| `CHALLENGED` | The outcome followed your challenge and evidence submission. |
+| `WITHDRAWN` | The customer or issuing bank withdrew the dispute. |
+| `NEED_MORE_INFORMATION` | The reviewer needs more information before deciding. Unlike the other reasons, this pairs with `ACTION_REQUIRED`, not a terminal status: the dispute returns to you for another response. This is how you tell a follow-up `dispute.action_required` apart from the original: the first occurrence has `status_reason: null`, a follow-up has `status_reason: NEED_MORE_INFORMATION`. |
+
+> **Note on amounts:** Every dispute has an `amount.initial` (amount when raised) and an `amount.terminal` (final resolved amount, `null` until resolved) that usually match but can differ for a partial resolution. Design your reconciliation logic around `amount.terminal`, not just the status.
+
+---
+
+## Webhooks
+
+Register a webhook endpoint in your Xendit Dashboard to receive these events:
+
+| Event | Fires when |
+| --- | --- |
+| `dispute.action_required` | A new dispute needs your decision. |
+| `dispute.under_review` | Your challenge and evidence have been submitted and are being reviewed. |
+| `dispute.won` | The dispute resolved in your favor. |
+| `dispute.lost` | The dispute resolved against you. |
+
+Each payload contains the full public state of the dispute, including which evidence you're allowed to submit:
+
+```
+{
+  "event": "dispute.action_required",
+  "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+  "channel_code": "CARDS",
+  "card_brands": "VISA",
+  "status": "ACTION_REQUIRED",
+  "status_reason": null,
+  "currency": "USD",
+  "amount": { "initial": "1000.00", "terminal": null },
+  "created_at": "2026-03-01T19:50:51.724Z",
+  "updated_at": "2026-03-01T19:50:51.724Z",
+  "due_date": "2026-03-15T19:50:51.724Z",
+  "note": "Please provide evidence of delivery.",
+  "category": {
+    "name": "fraud",
+    "allowed_evidence": [
+      { "name": "proof_of_delivery", "type": "FILE", "max_length": 5242880, "is_recommended": true, "max_evidences": 3 },
+      { "name": "explanation", "type": "TEXT", "max_length": 255, "is_recommended": false, "max_evidences": 3 }
+    ]
+  },
+  "related_disputes": [],
+  "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+  "reference_id": "ref-123456",
+  "evidences": []
+}
+```
+
+`category.allowed_evidence` tells you exactly what you can submit for this dispute:
+
+| Field | Meaning |
+| --- | --- |
+| `name` | The evidence slug. Use this as the form field name when you submit evidence. |
+| `type` | `FILE` or `TEXT`. |
+| `max_length` | The size limit for this item: bytes for `FILE`, characters for `TEXT`. |
+| `is_recommended` | Whether Xendit recommends including this evidence for a stronger challenge. Not mandatory. |
+| `max_evidences` | The maximum number of items you can submit for this slug. |
+
+`dispute.action_required` can fire more than once for the same dispute: the first occurrence has `status_reason: null`, and a later one with `status_reason: NEED_MORE_INFORMATION` means the reviewer needs more from you, not a duplicate delivery. Build your handler to be **idempotent** regardless: webhook delivery isn't guaranteed exactly once, so key your processing off the dispute `id`, `status`, `status_reason`, and `updated_at`. Track `due_date` from this payload and set your own reminder; there is no separate deadline reminder webhook.
+
+> **Platform (xenPlatform) merchants:** Subscribe to dispute webhooks once on your master Business ID; this covers every sub-account, with no separate subscription needed.
+> 
+> 
+> To act on a sub-account's dispute (evidences, challenge, or accept), include a `for-user-id` header set to the sub-account's Business ID, authenticated with your master account's API key. See the [xenPlatform overview](https://docs.xendit.co/docs/xenplatform-overview) and the [`for-user-id` guide](https://help.xendit.co/hc/en-us/articles/10534695308185-How-Do-I-Use-for-user-id-Parameter-to-Do-Transaction-as-Master-Account-on-Behalf-of-my-Sub-Account) for the general pattern.
+
+---
+
+## Responding to a dispute
+
+Once you receive `dispute.action_required`, there are exactly two things to do before `due_date`: **challenge** it with evidence, or **accept** it. The webhook payload already tells you what evidence you can submit (`category.allowed_evidence`, above); you don't need a separate lookup to get started. Miss the deadline, and it defaults to `LOST` with `status_reason: EXCEEDED_DEADLINE`.
+
+### Option A: Challenge the dispute
+
+**Step 1: submit evidence**
+
+```
+POST /v1/disputes/{dispute_id}/evidences
+Content-Type: multipart/form-data
+```
+
+Each form field name is one of the evidence slugs from `category.allowed_evidence` (for example `proof_of_delivery`); the value is a file or a text string, matching that slug's `type`.
+
+- Up to 10 evidence items per request.
+- File and text evidence can be submitted together.
+- One submission per slug, up to that slug's `max_evidences`. Use `PATCH` (below) to revise text evidence you've already submitted.
+
+```
+curl https://api.xendit.co/v1/disputes/mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7/evidences \
+  -u $SECRET_API_KEY: \
+  -F "proof_of_delivery=@delivery_receipt.pdf" \
+  -F "explanation=The customer completed the transaction at our store."
+```
+
+The response reports successes and failures item by item, so a partial failure doesn't block the rest of your submission:
+
+```
+{
+  "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+  "evidences_succeeded": [
+    { "id": "mi-dspt-evd-12345", "category_slug": "proof_of_delivery", "filename": "delivery_receipt.pdf", "mime_type": "application/pdf", "type": "FILE" }
+  ],
+  "evidences_failed": [
+    { "filename": "invalid_category", "reason": "Evidence category is not allowed for this dispute." }
+  ],
+  "message": "1 evidence(s) submitted successfully, 1 failed."
+}
+```
+
+`201 Created` on success. Check `evidences_failed` on every response, even a `201`; a request can partially succeed.
+
+| Error code | Meaning |
+| --- | --- |
+| `ILLEGAL_STATE` | The dispute isn't in a state that accepts evidence (for example, already under review or resolved). |
+| `EVIDENCE_CATEGORY_NOT_ALLOWED` | This slug isn't valid for this dispute. |
+| `CATEGORY_LIMIT_REACHED` | You've already reached that slug's `max_evidences`. |
+| `UNSUPPORTED_EVIDENCE_TYPE` | The uploaded file type isn't supported. |
+
+**Updating or removing evidence before you challenge**
+
+Evidence is immutable only after you finalize your challenge (`POST /challenge`). Until then, you can revise text evidence or remove any item:
+
+```
+PATCH /v1/disputes/{dispute_id}/evidences/{evidence_id}
+```
+
+```
+{ "text_content": "Updated statement: the customer completed the transaction and signed the receipt." }
+```
+
+`204 No Content` on success. Only `TEXT` evidence can be updated this way; `PATCH`ing a `FILE` item returns `422 EVIDENCE_NOT_TEXT`. Delete any evidence item (file or text) with:
+
+```
+DELETE /v1/disputes/{dispute_id}/evidences/{evidence_id}
+```
+
+`204 No Content` on success.
+
+**Step 2: finalize your challenge**
+
+```
+POST /v1/disputes/{dispute_id}/challenge
+```
+
+This locks in your submitted evidence and sends it for review; you can't add more evidence afterward.
+
+```
+{ "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7", "message": "Challenge accepted. The dispute will be processed asynchronously." }
+```
+
+`202 Accepted`. The review itself happens asynchronously; you'll get `dispute.under_review`, then `dispute.won` or `dispute.lost`, via webhook.
+
+| Error code | Meaning |
+| --- | --- |
+| `ILLEGAL_STATE` | The dispute isn't in a state that can be challenged right now. |
+| `INVALID_REQUEST` | You haven't submitted any evidence yet. Submit at least one item before challenging. |
+
+### Option B: Accept the dispute
+
+Accepting returns the disputed amount to your customer and immediately resolves the dispute as **Lost** (`status_reason: ACCEPTED`); this can't be undone, so only accept if you don't intend to challenge:
+
+```
+POST /v1/disputes/{dispute_id}/accept
+```
+
+```
+{ "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7", "message": "Accept acknowledged. The dispute will be processed asynchronously." }
+```
+
+`202 Accepted`. Processing is asynchronous; you'll receive `dispute.lost` via webhook once it's final. `ILLEGAL_STATE` (`400`) if the dispute is no longer in a state where it can be accepted.
+
+---
+
+## Looking up a dispute
+
+Everything you need to respond to a dispute already arrives in the webhook payload. This endpoint is optional: use it to re-check a dispute's current state, for example to recover from a missed webhook.
+
+```
+GET /v1/disputes/{dispute_id}
+```
+
+Returns the same fields as the webhook payload, including the current `category.allowed_evidence`. `200` on success, `404` if the dispute ID doesn't exist.
+
+---
+
+## Testing in sandbox
+
+This endpoint works only in the sandbox environment, has no effect on production data, and exists purely so you can test your evidence, challenge, and accept flow before a real dispute occurs.
+
+```
+POST /v1/disputes/simulate
+```
+
+**Create a simulated dispute** against a settled sandbox payment:
+
+```
+{
+  "scenario": "CREATE_DISPUTE",
+  "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+  "amount": "1000.00",
+  "currency": "USD",
+  "channel_code": "CARDS"
+}
+```
+
+The payment must already be settled, or you'll get `422 PAYMENT_NOT_SETTLED`. This triggers a real `dispute.action_required` webhook, so you can test your full evidence, challenge, and accept flow end to end.
+
+**Resolve a simulated dispute** once you've challenged or accepted it:
+
+```
+{ "scenario": "DISPUTE_WON", "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7" }
+```
+
+```
+{ "scenario": "DISPUTE_LOST", "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7" }
+```
+
+All three scenarios return `201 Created`:
+
+```
+{ "dispute_id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7", "created_at": "2026-03-01T19:50:51.724Z" }
+```
+
+| Error code | Meaning |
+| --- | --- |
+| `PAYMENT_NOT_SETTLED` | The payment exists but hasn't finished settling yet. |
+| `PAYMENT_NOT_FOUND` | The payment ID doesn't exist. |
 
 ========================================================================
 

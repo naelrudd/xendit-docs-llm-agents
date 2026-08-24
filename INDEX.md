@@ -1,10 +1,12 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 339
+Pages: 345
 
 | Path | First heading |
 |---|---|
 | [NOTICE.md](https://docs.xendit.co/NOTICE.md) | NOTICE |
+| [apidocs/account-holder-capabilities-notification-webhook.md](https://docs.xendit.co/apidocs/account-holder-capabilities-notification-webhook.md) | Account holder capabilities notification webhook |
+| [apidocs/account-holder-kyc-status-notification-webhook.md](https://docs.xendit.co/apidocs/account-holder-kyc-status-notification-webhook.md) | Account holder KYC status notification webhook |
 | [apidocs/account-suspension-webhook-notification.md](https://docs.xendit.co/apidocs/account-suspension-webhook-notification.md) | Account suspension webhook notification |
 | [apidocs/account-verification-webhook-notification.md](https://docs.xendit.co/apidocs/account-verification-webhook-notification.md) | Account verification webhook notification |
 | [apidocs/accounts-misc-introduction.md](https://docs.xendit.co/apidocs/accounts-misc-introduction.md) | Introduction |
@@ -16,6 +18,7 @@ Pages: 339
 | [apidocs/cancel-subscription-cycle-2.md](https://docs.xendit.co/apidocs/cancel-subscription-cycle-2.md) | Cancel Subscription Cycle |
 | [apidocs/capture-payment.md](https://docs.xendit.co/apidocs/capture-payment.md) | Capture a payment |
 | [apidocs/check-available-installment-plans.md](https://docs.xendit.co/apidocs/check-available-installment-plans.md) | Check available installment plans |
+| [apidocs/create-account-holder.md](https://docs.xendit.co/apidocs/create-account-holder.md) | Create account holder |
 | [apidocs/create-account-v3.md](https://docs.xendit.co/apidocs/create-account-v3.md) | Create account (v3) |
 | [apidocs/create-account.md](https://docs.xendit.co/apidocs/create-account.md) | Create account |
 | [apidocs/create-conversion-1.md](https://docs.xendit.co/apidocs/create-conversion-1.md) | Create Conversion |
@@ -36,6 +39,7 @@ Pages: 339
 | [apidocs/force-attempt-subscription-cycle-2.md](https://docs.xendit.co/apidocs/force-attempt-subscription-cycle-2.md) | Force Attempt Subscription Cycle |
 | [apidocs/foreign-exchange-introduction.md](https://docs.xendit.co/apidocs/foreign-exchange-introduction.md) | Introduction |
 | [apidocs/generate-report.md](https://docs.xendit.co/apidocs/generate-report.md) | Generate Report |
+| [apidocs/get-account-holder.md](https://docs.xendit.co/apidocs/get-account-holder.md) | Get account holder |
 | [apidocs/get-account.md](https://docs.xendit.co/apidocs/get-account.md) | Get account |
 | [apidocs/get-balance.md](https://docs.xendit.co/apidocs/get-balance.md) | Get balance |
 | [apidocs/get-conversion-by-id.md](https://docs.xendit.co/apidocs/get-conversion-by-id.md) | Get Conversion by ID |
@@ -81,6 +85,7 @@ Pages: 339
 | [apidocs/split-payment-status-notification-webhook.md](https://docs.xendit.co/apidocs/split-payment-status-notification-webhook.md) | Split payment status notification webhook |
 | [apidocs/submit-account-verification.md](https://docs.xendit.co/apidocs/submit-account-verification.md) | Submit account verification |
 | [apidocs/subscription-webhook.md](https://docs.xendit.co/apidocs/subscription-webhook.md) | Subscription Webhook |
+| [apidocs/update-account-holder.md](https://docs.xendit.co/apidocs/update-account-holder.md) | Update account holder |
 | [apidocs/update-account.md](https://docs.xendit.co/apidocs/update-account.md) | Update account |
 | [apidocs/update-customer.md](https://docs.xendit.co/apidocs/update-customer.md) | Update Customer |
 | [apidocs/update-subscription-cycle-2.md](https://docs.xendit.co/apidocs/update-subscription-cycle-2.md) | Update Subscription Cycle |
@@ -211,6 +216,7 @@ Pages: 339
 | [docs/magento-introduction.md](https://docs.xendit.co/docs/magento-introduction.md) | Magento |
 | [docs/magento.md](https://docs.xendit.co/docs/magento.md) | Magento |
 | [docs/malaysia-business-documents.md](https://docs.xendit.co/docs/malaysia-business-documents.md) | Malaysia |
+| [docs/manage-disputes-via-api.md](https://docs.xendit.co/docs/manage-disputes-via-api.md) | Manage Disputes via API |
 | [docs/mandiri-virtual-account.md](https://docs.xendit.co/docs/mandiri-virtual-account.md) | Mandiri Virtual Account |
 | [docs/mastercard-transaction-link-id.md](https://docs.xendit.co/docs/mastercard-transaction-link-id.md) | Mastercard Transaction Link ID |
 | [docs/maya.md](https://docs.xendit.co/docs/maya.md) | Maya |
