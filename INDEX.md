@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 345
+Pages: 349
 
 | Path | First heading |
 |---|---|
@@ -167,6 +167,9 @@ Pages: 345
 | [docs/dana.md](https://docs.xendit.co/docs/dana.md) |  |
 | [docs/delayed-webhooks.md](https://docs.xendit.co/docs/delayed-webhooks.md) |  |
 | [docs/detailed-transactions-report.md](https://docs.xendit.co/docs/detailed-transactions-report.md) |  |
+| [docs/dispute-chargeback-basics.md](https://docs.xendit.co/docs/dispute-chargeback-basics.md) | Dispute & chargeback basics |
+| [docs/dispute-guidelines-cards.md](https://docs.xendit.co/docs/dispute-guidelines-cards.md) | Dispute guidelines: Cards |
+| [docs/dispute-guidelines-qris.md](https://docs.xendit.co/docs/dispute-guidelines-qris.md) | Dispute guidelines: QRIS |
 | [docs/dispute-guidelines.md](https://docs.xendit.co/docs/dispute-guidelines.md) |  |
 | [docs/dispute-management.md](https://docs.xendit.co/docs/dispute-management.md) |  |
 | [docs/dispute-report.md](https://docs.xendit.co/docs/dispute-report.md) | Dispute Report |
@@ -217,6 +220,7 @@ Pages: 345
 | [docs/magento.md](https://docs.xendit.co/docs/magento.md) | Magento |
 | [docs/malaysia-business-documents.md](https://docs.xendit.co/docs/malaysia-business-documents.md) | Malaysia |
 | [docs/manage-disputes-via-api.md](https://docs.xendit.co/docs/manage-disputes-via-api.md) | Manage Disputes via API |
+| [docs/manage-disputes-via-dashboard.md](https://docs.xendit.co/docs/manage-disputes-via-dashboard.md) | Manage disputes via Dashboard |
 | [docs/mandiri-virtual-account.md](https://docs.xendit.co/docs/mandiri-virtual-account.md) | Mandiri Virtual Account |
 | [docs/mastercard-transaction-link-id.md](https://docs.xendit.co/docs/mastercard-transaction-link-id.md) | Mastercard Transaction Link ID |
 | [docs/maya.md](https://docs.xendit.co/docs/maya.md) | Maya |
