@@ -1,6 +1,6 @@
 # Docs — Full corpus (single-file)
 Source: https://docs.xendit.co/llms.txt
-Pages: 349
+Pages: 358
 
 ========================================================================
 
@@ -18,6 +18,156 @@ documentation at the source URLs listed in `llms.txt`.
 - No affiliation with, or endorsement by, the vendor is implied.
 - Source URLs are preserved in `llms.txt` and in each page path.
 - If you are the copyright holder and want this taken down, open an issue.
+
+========================================================================
+
+# apidocs/accept-a-dispute-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Accept a dispute
+
+> Concede the dispute and accept liability for the chargeback. Use this when you do not intend to contest the claim. This action is irreversible: once accepted, the disputed amount will be debited from your account and the dispute will move to a terminal LOST state with status_reason ACCEPTED.
+
+## OpenAPI
+
+````json POST /v1/disputes/{dispute_id}/accept
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}/accept": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "acceptDispute",
+        "summary": "Accept a dispute",
+        "description": "Concede the dispute and accept liability for the chargeback. Use this when you do not intend to contest the claim. This action is irreversible: once accepted, the disputed amount will be debited from your account and the dispute will move to a terminal LOST state with status_reason ACCEPTED.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accept acknowledged. The dispute will be processed asynchronously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dispute_id": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Action not allowed in current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "ILLEGAL_STATE",
+                  "message": "The requested action is not allowed in the current dispute state."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
 
 ========================================================================
 
@@ -18951,6 +19101,150 @@ objectobject
 
 ========================================================================
 
+# apidocs/delete-a-submitted-evidence-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Delete a submitted evidence
+
+> Remove a previously submitted evidence item from a dispute. The dispute must still be in ACTION_REQUIRED status. Deleted evidence cannot be recovered.
+
+## OpenAPI
+
+````json DELETE /v1/disputes/{dispute_id}/evidences/{evidence_id}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}/evidences/{evidence_id}": {
+      "delete": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "deleteDisputeEvidence",
+        "summary": "Delete a submitted evidence",
+        "description": "Remove a previously submitted evidence item from a dispute. The dispute must still be in ACTION_REQUIRED status. Deleted evidence cannot be recovered.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute that owns this evidence."
+          },
+          {
+            "name": "evidence_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the evidence item to delete."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Evidence deleted successfully."
+          },
+          "400": {
+            "description": "Action not allowed in current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "ILLEGAL_STATE",
+                  "message": "The requested action is not allowed in the current dispute state."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
+
+========================================================================
+
 # apidocs/delete-file-by-id.md
 
 ========================================================================
@@ -19019,6 +19313,628 @@ objectobject
 
 ========================================================================
 
+# apidocs/dispute-webhook-notifications.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Dispute Webhook Notifications
+
+> Xendit sends a POST request to your configured endpoint whenever a dispute status changes. The payload includes the event name alongside the dispute object.
+
+## OpenAPI
+
+````json POST /your_dispute_webhook_url
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/your_dispute_webhook_url": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "disputeWebhook",
+        "summary": "Dispute Webhook Notifications",
+        "description": "Xendit sends a POST request to your configured endpoint whenever a dispute status changes. The payload includes the event name alongside the dispute object.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Merchant_Dispute_API_XCallbackToken"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Merchant_Dispute_API_WebhookEvent"
+              },
+              "examples": {
+                "dispute_action_required": {
+                  "summary": "New Dispute - Action Required",
+                  "value": {
+                    "event": "dispute.action_required",
+                    "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+                    "channel_code": "CARDS",
+                    "card_brands": "VISA",
+                    "status": "ACTION_REQUIRED",
+                    "currency": "USD",
+                    "amount": {
+                      "initial": "1000.00",
+                      "terminal": null
+                    },
+                    "created_at": "2026-03-01T19:50:51.724Z",
+                    "updated_at": "2026-03-01T19:50:51.724Z",
+                    "due_date": "2026-03-15T19:50:51.724Z",
+                    "note": "Please provide evidence of delivery.",
+                    "category": {
+                      "name": "fraud",
+                      "allowed_evidence": [
+                        {
+                          "name": "proof_of_delivery",
+                          "type": "FILE",
+                          "max_length": "5242880",
+                          "is_recommended": "true",
+                          "max_evidences": "3"
+                        },
+                        {
+                          "name": "explanation",
+                          "type": "TEXT",
+                          "max_length": "255",
+                          "is_recommended": "false",
+                          "max_evidences": "3"
+                        }
+                      ]
+                    },
+                    "related_disputes": [],
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "reference_id": "ref-123456"
+                  }
+                },
+                "dispute_under_review": {
+                  "summary": "Dispute Under Review",
+                  "value": {
+                    "event": "dispute.under_review",
+                    "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+                    "channel_code": "CARDS",
+                    "card_brands": "VISA",
+                    "status": "UNDER_REVIEW",
+                    "currency": "USD",
+                    "amount": {
+                      "initial": "1000.00",
+                      "terminal": null
+                    },
+                    "created_at": "2026-03-01T19:50:51.724Z",
+                    "updated_at": "2026-03-05T10:30:00Z",
+                    "due_date": "2026-03-15T19:50:51.724Z",
+                    "note": "Please provide evidence of delivery.",
+                    "category": {
+                      "name": "fraud",
+                      "allowed_evidence": [
+                        {
+                          "name": "proof_of_delivery",
+                          "type": "FILE",
+                          "max_length": "5242880",
+                          "is_recommended": "true",
+                          "max_evidences": "3"
+                        },
+                        {
+                          "name": "explanation",
+                          "type": "TEXT",
+                          "max_length": "255",
+                          "is_recommended": "false",
+                          "max_evidences": "3"
+                        }
+                      ]
+                    },
+                    "evidences": [
+                      {
+                        "id": "mi-dspt-evd-12345",
+                        "type": "FILE",
+                        "category_slug": "proof_of_delivery",
+                        "filename": "delivery_receipt.pdf",
+                        "mime_type": "application/pdf"
+                      }
+                    ],
+                    "related_disputes": [],
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "reference_id": "ref-123456"
+                  }
+                },
+                "dispute_won": {
+                  "summary": "Dispute Won",
+                  "value": {
+                    "event": "dispute.won",
+                    "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+                    "channel_code": "CARDS",
+                    "card_brands": "VISA",
+                    "status": "WON",
+                    "status_reason": "CHALLENGED",
+                    "currency": "USD",
+                    "amount": {
+                      "initial": "1000.00",
+                      "terminal": null
+                    },
+                    "created_at": "2026-03-01T19:50:51.724Z",
+                    "updated_at": "2026-03-20T14:00:00Z",
+                    "due_date": "2026-03-15T19:50:51.724Z",
+                    "category": {
+                      "name": "fraud",
+                      "allowed_evidence": [
+                        {
+                          "name": "proof_of_delivery",
+                          "type": "FILE",
+                          "max_length": "5242880",
+                          "is_recommended": "true",
+                          "max_evidences": "3"
+                        },
+                        {
+                          "name": "explanation",
+                          "type": "TEXT",
+                          "max_length": "255",
+                          "is_recommended": "false",
+                          "max_evidences": "3"
+                        }
+                      ]
+                    },
+                    "evidences": [
+                      {
+                        "id": "mi-dspt-evd-12345",
+                        "type": "FILE",
+                        "category_slug": "proof_of_delivery",
+                        "filename": "delivery_receipt.pdf",
+                        "mime_type": "application/pdf"
+                      }
+                    ],
+                    "related_disputes": [],
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "reference_id": "ref-123456"
+                  }
+                },
+                "dispute_lost": {
+                  "summary": "Dispute Lost",
+                  "value": {
+                    "event": "dispute.lost",
+                    "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+                    "channel_code": "CARDS",
+                    "card_brands": "VISA",
+                    "status": "LOST",
+                    "status_reason": "EXCEEDED_DEADLINE",
+                    "currency": "USD",
+                    "amount": {
+                      "initial": "1000.00",
+                      "terminal": null
+                    },
+                    "created_at": "2026-03-01T19:50:51.724Z",
+                    "updated_at": "2026-03-20T14:00:00Z",
+                    "due_date": "2026-03-15T19:50:51.724Z",
+                    "note": "Please provide evidence of delivery.",
+                    "category": {
+                      "name": "fraud",
+                      "allowed_evidence": [
+                        {
+                          "name": "proof_of_delivery",
+                          "type": "FILE",
+                          "max_length": "5242880",
+                          "is_recommended": "true",
+                          "max_evidences": "3"
+                        },
+                        {
+                          "name": "explanation",
+                          "type": "TEXT",
+                          "max_length": "255",
+                          "is_recommended": "false",
+                          "max_evidences": "3"
+                        }
+                      ]
+                    },
+                    "evidences": [
+                      {
+                        "id": "mi-dspt-evd-12345",
+                        "type": "FILE",
+                        "category_slug": "proof_of_delivery",
+                        "filename": "delivery_receipt.pdf",
+                        "mime_type": "application/pdf"
+                      }
+                    ],
+                    "related_disputes": [],
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "reference_id": "ref-123456"
+                  }
+                },
+                "dispute_due_date_approaching": {
+                  "summary": "Dispute Due Date Approaching",
+                  "value": {
+                    "event": "dispute.due_date_approaching",
+                    "id": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7",
+                    "channel_code": "CARDS",
+                    "card_brands": "VISA",
+                    "status": "ACTION_REQUIRED",
+                    "currency": "USD",
+                    "amount": {
+                      "initial": "1000.00",
+                      "terminal": null
+                    },
+                    "created_at": "2026-03-01T19:50:51.724Z",
+                    "updated_at": "2026-03-13T08:00:00Z",
+                    "due_date": "2026-03-15T19:50:51.724Z",
+                    "category": {
+                      "name": "fraud",
+                      "allowed_evidence": [
+                        {
+                          "name": "proof_of_delivery",
+                          "type": "FILE",
+                          "max_length": "5242880",
+                          "is_recommended": "true",
+                          "max_evidences": "3"
+                        },
+                        {
+                          "name": "explanation",
+                          "type": "TEXT",
+                          "max_length": "255",
+                          "is_recommended": "false",
+                          "max_evidences": "3"
+                        }
+                      ]
+                    },
+                    "related_disputes": [],
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "reference_id": "ref-123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK. The webhook was received and processed."
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "Merchant_Dispute_API_XCallbackToken": {
+        "in": "header",
+        "name": "x-callback-token",
+        "required": "false",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Your Xendit unique webhook token to verify the origin of the webhook. It is highly recommended for your integration to verify this value."
+      }
+    },
+    "schemas": {
+      "Merchant_Dispute_API_WebhookEvent": {
+        "type": "object",
+        "x-callback-object": "true",
+        "required": [
+          "event",
+          "id",
+          "channel_code",
+          "status",
+          "currency",
+          "amount",
+          "created_at",
+          "updated_at",
+          "due_date",
+          "related_disputes"
+        ],
+        "properties": {
+          "event": {
+            "type": "string",
+            "enum": [
+              "dispute.action_required",
+              "dispute.under_review",
+              "dispute.won",
+              "dispute.lost",
+              "dispute.due_date_approaching"
+            ],
+            "description": "The specific lifecycle event. dispute.action_required: dispute raised, response required. dispute.under_review: challenge submitted. dispute.won: ruled in your favor. dispute.lost: ruled against you. dispute.due_date_approaching: deadline is near.",
+            "example": "dispute.action_required"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique dispute identifier.",
+            "example": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7"
+          },
+          "channel_code": {
+            "type": "string",
+            "description": "Payment channel through which the original transaction was made.",
+            "example": "CARDS"
+          },
+          "card_brands": {
+            "type": "string",
+            "description": "Card network associated with the dispute. Only present when channel_code is CARDS.",
+            "example": "VISA"
+          },
+          "status": {
+            "type": "string",
+            "description": "Dispute status at the time this webhook was fired.",
+            "enum": [
+              "ACTION_REQUIRED",
+              "UNDER_REVIEW",
+              "WON",
+              "LOST"
+            ],
+            "example": "ACTION_REQUIRED"
+          },
+          "status_reason": {
+            "type": "string",
+            "enum": [
+              "EXCEEDED_DEADLINE",
+              "ACCEPTED",
+              "CHALLENGED",
+              "WITHDRAWN",
+              "ARBITRATION",
+              "NEED_MORE_INFORMATION"
+            ],
+            "example": "EXCEEDED_DEADLINE"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency of the disputed amount, in ISO-4217 format.",
+            "example": "USD"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Merchant_Dispute_API_DisputeAmount"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-09-03T04:11:58.756Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-09-03T04:14:53.499Z"
+          },
+          "due_date": {
+            "type": "string",
+            "description": "Response deadline for this dispute.",
+            "format": "date-time",
+            "example": "2026-09-10T04:11:54.917Z"
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional guidance message from Xendit explaining the dispute.",
+            "nullable": "true",
+            "example": null
+          },
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Merchant_Dispute_API_PublicDisputeCategory"
+              }
+            ],
+            "nullable": "true",
+            "description": "Dispute category with the evidence categories allowed for it. Null when the category is not set or could not be resolved."
+          },
+          "related_disputes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "payment_id": {
+            "type": "string",
+            "description": "Xendit payment identifier for the original disputed transaction.",
+            "nullable": "true",
+            "example": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7"
+          },
+          "reference_id": {
+            "type": "string",
+            "nullable": "true",
+            "description": "Your reference ID for the original transaction.",
+            "example": "dispute-test-1788408708890"
+          },
+          "evidences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Merchant_Dispute_API_EvidenceItem"
+            },
+            "description": "Flat list of evidence items (not grouped)."
+          }
+        }
+      },
+      "Merchant_Dispute_API_DisputeAmount": {
+        "type": "object",
+        "properties": {
+          "initial": {
+            "type": "string",
+            "description": "The amount when the dispute was first raised.",
+            "example": "1000.00"
+          },
+          "terminal": {
+            "type": "string",
+            "nullable": "true",
+            "description": "The final resolved amount. May differ from initial for partial disputes. Null while unresolved.",
+            "example": "1000.00"
+          }
+        }
+      },
+      "Merchant_Dispute_API_PublicDisputeCategory": {
+        "type": "object",
+        "required": [
+          "name",
+          "allowed_evidence"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug of the dispute category.",
+            "example": "fraud"
+          },
+          "allowed_evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Merchant_Dispute_API_PublicAllowedEvidenceCategory"
+            }
+          }
+        }
+      },
+      "Merchant_Dispute_API_EvidenceItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "category_slug",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Xendit-generated unique identifier for this evidence item. Use in PATCH and DELETE evidence endpoints.",
+            "example": "mi-dspt-evd-20d5cc8a-4ba0-4378-b96f-c4bcbb8a1d0e"
+          },
+          "type": {
+            "type": "string",
+            "description": "Evidence type. FILE indicates a file attachment. TEXT indicates inline text content.",
+            "enum": [
+              "FILE",
+              "TEXT"
+            ],
+            "example": "FILE"
+          },
+          "category_slug": {
+            "type": "string",
+            "description": "Slug of the evidence category this belongs to.",
+            "example": "proof_of_delivery"
+          },
+          "text_content": {
+            "type": "string",
+            "description": "The text content of this evidence item. Only present when type is TEXT.",
+            "example": "The customer completed the transaction at our store."
+          },
+          "mime_type": {
+            "type": "string",
+            "description": "MIME type of the uploaded file (e.g., application/pdf, image/jpeg). Only present when type is FILE.",
+            "example": "application/pdf"
+          },
+          "filename": {
+            "type": "string",
+            "description": "Original filename of the uploaded file. Only present when type is FILE.",
+            "example": "receipt.pdf"
+          },
+          "content_hash": {
+            "type": "string",
+            "description": "MD5 hash of the file content, prefixed with md5:. Only present when type is FILE.",
+            "example": "md5:318d5cb8146d90b9f02a9fe5809583aa"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when this evidence item was submitted, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:14:53.499Z"
+          }
+        }
+      },
+      "Merchant_Dispute_API_PublicAllowedEvidenceCategory": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "max_length",
+          "is_recommended",
+          "max_evidences"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Evidence category slug. Use this exact value as the multipart form field name when calling POST /v1/disputes/{dispute_id}/evidences.",
+            "example": "receipt"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "FILE",
+              "TEXT"
+            ],
+            "description": "FILE requires a file upload; TEXT accepts inline text content.",
+            "example": "FILE"
+          },
+          "max_length": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Maximum size for this evidence category. For FILE: maximum file size in bytes. For TEXT: maximum character count.",
+            "example": "10485760"
+          },
+          "is_recommended": {
+            "type": "boolean",
+            "description": "When true, Xendit recommends submitting this evidence type to strengthen your challenge.",
+            "example": "true"
+          },
+          "max_evidences": {
+            "type": "integer",
+            "description": "Maximum number of evidence items accepted for this evidence category.",
+            "example": "1"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
+
+========================================================================
+
 # apidocs/download-file-by-id.md
 
 ========================================================================
@@ -19065,6 +19981,166 @@ The provided `id` does not exist. Please review the `id` and try again
 messagestring    
 errors Array  OneOfstringstring
 objectobject
+
+========================================================================
+
+# apidocs/finalize-and-submit-evidence-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Finalize and submit evidence
+
+> Finalize and submit all uploaded evidence to contest the dispute. Once submitted, the dispute moves to UNDER_REVIEW status and evidence can no longer be added, modified, or deleted. The outcome (WON or LOST) is determined asynchronously and delivered via webhook. The dispute must be in ACTION_REQUIRED status and must have at least one evidence item.
+
+## OpenAPI
+
+````json POST /v1/disputes/{dispute_id}/challenge
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}/challenge": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "challengeDispute",
+        "summary": "Finalize and submit evidence",
+        "description": "Finalize and submit all uploaded evidence to contest the dispute. Once submitted, the dispute moves to UNDER_REVIEW status and evidence can no longer be added, modified, or deleted. The outcome (WON or LOST) is determined asynchronously and delivered via webhook. The dispute must be in ACTION_REQUIRED status and must have at least one evidence item.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute."
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Challenge accepted. The dispute will be processed asynchronously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "dispute_id": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Action not allowed in current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "examples": {
+                  "illegal_state": {
+                    "value": {
+                      "error_code": "ILLEGAL_STATE",
+                      "message": "The requested action is not allowed in the current dispute state."
+                    }
+                  },
+                  "no_evidence": {
+                    "value": {
+                      "error_code": "INVALID_REQUEST",
+                      "message": "No evidence items provided."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
 
 ========================================================================
 
@@ -21654,6 +22730,502 @@ The provided `id` does not exist. Please review the `id` and try again
 messagestring    
 errors Array  OneOfstringstring
 objectobject
+
+========================================================================
+
+# apidocs/get-dispute-details-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Get dispute details
+
+> Retrieve full details of a single dispute, including category, allowed evidence types, and submitted evidences. Use include_timeline=true to also receive the audit trail of state transitions.
+
+## OpenAPI
+
+````json GET /v1/disputes/{dispute_id}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}": {
+      "get": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "getDispute",
+        "summary": "Get dispute details",
+        "description": "Retrieve full details of a single dispute, including category, allowed evidence types, and submitted evidences. Use include_timeline=true to also receive the audit trail of state transitions.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute. Returned in the id field from GET /disputes or in webhook payloads."
+          },
+          {
+            "name": "include_timeline",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": "false"
+            },
+            "description": "If true, embeds timeline events inside the dispute response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed information about the dispute.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_Dispute"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access not allowed for this business.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "RESTRICTED_ACCESS",
+                  "message": "Access to this resource is restricted."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dispute not found."
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_Dispute": {
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "channel_code",
+          "status",
+          "currency",
+          "amount",
+          "due_date",
+          "evidences",
+          "related_disputes",
+          "note",
+          "category",
+          "payment_id",
+          "reference_id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Xendit-generated unique dispute identifier.",
+            "example": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the dispute was created, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:11:58.756Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp of the last status change, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:14:53.499Z"
+          },
+          "channel_code": {
+            "type": "string",
+            "description": "Payment channel through which the original transaction was made.",
+            "example": "CARDS"
+          },
+          "card_brands": {
+            "type": "string",
+            "description": "Card network associated with the dispute. Only present when channel_code is CARDS.",
+            "example": "VISA"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current lifecycle state.",
+            "enum": [
+              "ACTION_REQUIRED",
+              "UNDER_REVIEW",
+              "WON",
+              "LOST"
+            ],
+            "example": "ACTION_REQUIRED"
+          },
+          "status_reason": {
+            "type": "string",
+            "enum": [
+              "EXCEEDED_DEADLINE",
+              "ACCEPTED",
+              "CHALLENGED",
+              "WITHDRAWN",
+              "ARBITRATION",
+              "NEED_MORE_INFORMATION"
+            ],
+            "description": "Reason for the dispute outcome.",
+            "example": "EXCEEDED_DEADLINE"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency of the disputed amount, in ISO-4217 format.",
+            "example": "USD"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Merchant_Dispute_API_DisputeAmount"
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional guidance message from Xendit explaining the dispute reason.",
+            "nullable": "true",
+            "example": "Please provide evidence of delivery."
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The deadline to take action on this dispute.",
+            "example": "2026-09-10T04:11:54.917Z"
+          },
+          "evidences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Merchant_Dispute_API_EvidenceItem"
+            },
+            "description": "Flat list of evidence items (not grouped)."
+          },
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Merchant_Dispute_API_PublicDisputeCategory"
+              }
+            ],
+            "nullable": "true",
+            "description": "Dispute category with the evidence categories allowed for it. Null when the category is not set or could not be resolved."
+          },
+          "related_disputes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "IDs of other disputes linked to the same original transaction."
+          },
+          "payment_id": {
+            "type": "string",
+            "description": "Xendit payment identifier for the original disputed transaction.",
+            "nullable": "true",
+            "example": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7"
+          },
+          "reference_id": {
+            "type": "string",
+            "nullable": "true",
+            "description": "Your reference ID for the original transaction.",
+            "example": "dispute-test-1788408708890"
+          },
+          "timeline": {
+            "type": "array",
+            "description": "Only included when `include_timeline=true` query param is passed.",
+            "items": {
+              "$ref": "#/components/schemas/Merchant_Dispute_API_TimelineEvent"
+            }
+          }
+        }
+      },
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      },
+      "Merchant_Dispute_API_DisputeAmount": {
+        "type": "object",
+        "properties": {
+          "initial": {
+            "type": "string",
+            "description": "The amount when the dispute was first raised.",
+            "example": "1000.00"
+          },
+          "terminal": {
+            "type": "string",
+            "nullable": "true",
+            "description": "The final resolved amount. May differ from initial for partial disputes. Null while unresolved.",
+            "example": "1000.00"
+          }
+        }
+      },
+      "Merchant_Dispute_API_EvidenceItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "category_slug",
+          "created_at"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Xendit-generated unique identifier for this evidence item. Use in PATCH and DELETE evidence endpoints.",
+            "example": "mi-dspt-evd-20d5cc8a-4ba0-4378-b96f-c4bcbb8a1d0e"
+          },
+          "type": {
+            "type": "string",
+            "description": "Evidence type. FILE indicates a file attachment. TEXT indicates inline text content.",
+            "enum": [
+              "FILE",
+              "TEXT"
+            ],
+            "example": "FILE"
+          },
+          "category_slug": {
+            "type": "string",
+            "description": "Slug of the evidence category this belongs to.",
+            "example": "proof_of_delivery"
+          },
+          "text_content": {
+            "type": "string",
+            "description": "The text content of this evidence item. Only present when type is TEXT.",
+            "example": "The customer completed the transaction at our store."
+          },
+          "mime_type": {
+            "type": "string",
+            "description": "MIME type of the uploaded file (e.g., application/pdf, image/jpeg). Only present when type is FILE.",
+            "example": "application/pdf"
+          },
+          "filename": {
+            "type": "string",
+            "description": "Original filename of the uploaded file. Only present when type is FILE.",
+            "example": "receipt.pdf"
+          },
+          "content_hash": {
+            "type": "string",
+            "description": "MD5 hash of the file content, prefixed with md5:. Only present when type is FILE.",
+            "example": "md5:318d5cb8146d90b9f02a9fe5809583aa"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when this evidence item was submitted, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:14:53.499Z"
+          }
+        }
+      },
+      "Merchant_Dispute_API_PublicDisputeCategory": {
+        "type": "object",
+        "required": [
+          "name",
+          "allowed_evidence"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Slug of the dispute category.",
+            "example": "fraud"
+          },
+          "allowed_evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Merchant_Dispute_API_PublicAllowedEvidenceCategory"
+            }
+          }
+        }
+      },
+      "Merchant_Dispute_API_TimelineEvent": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Dispute status at the time of this event.",
+            "enum": [
+              "ACTION_REQUIRED",
+              "UNDER_REVIEW",
+              "WON",
+              "LOST"
+            ],
+            "example": "ACTION_REQUIRED"
+          },
+          "status_reason": {
+            "type": "string",
+            "description": "Reason associated with this status transition. Only populated for WON or LOST transitions.",
+            "nullable": "true",
+            "enum": [
+              "EXCEEDED_DEADLINE",
+              "ACCEPTED",
+              "CHALLENGED",
+              "WITHDRAWN",
+              "ARBITRATION",
+              "NEED_MORE_INFORMATION"
+            ],
+            "example": null
+          },
+          "actor": {
+            "type": "string",
+            "description": "Entity that triggered this event. MERCHANT_VIA_DASHBOARD or MERCHANT_VIA_API for merchant actions. XENDIT for internal system actions.",
+            "enum": [
+              "MERCHANT_VIA_DASHBOARD",
+              "MERCHANT_VIA_API",
+              "XENDIT"
+            ],
+            "example": "XENDIT"
+          },
+          "action": {
+            "type": "string",
+            "description": "Internal action name describing what occurred at this step. Provided for informational and debugging purposes.",
+            "example": "SEND_TO_MERCHANT"
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional message associated with this timeline event.",
+            "nullable": "true",
+            "example": null
+          },
+          "due_date": {
+            "type": "string",
+            "description": "Response deadline applicable at this point in the timeline.",
+            "format": "date-time",
+            "nullable": "true",
+            "example": "2026-09-10T04:11:54.917Z"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Merchant_Dispute_API_DisputeAmount"
+          },
+          "evidences": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Evidence IDs associated with this event."
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "When this event occurred, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:11:58.756Z"
+          }
+        }
+      },
+      "Merchant_Dispute_API_PublicAllowedEvidenceCategory": {
+        "type": "object",
+        "required": [
+          "name",
+          "type",
+          "max_length",
+          "is_recommended",
+          "max_evidences"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Evidence category slug. Use this exact value as the multipart form field name when calling POST /v1/disputes/{dispute_id}/evidences.",
+            "example": "receipt"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "FILE",
+              "TEXT"
+            ],
+            "description": "FILE requires a file upload; TEXT accepts inline text content.",
+            "example": "FILE"
+          },
+          "max_length": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Maximum size for this evidence category. For FILE: maximum file size in bytes. For TEXT: maximum character count.",
+            "example": "10485760"
+          },
+          "is_recommended": {
+            "type": "boolean",
+            "description": "When true, Xendit recommends submitting this evidence type to strengthen your challenge.",
+            "example": "true"
+          },
+          "max_evidences": {
+            "type": "integer",
+            "description": "Maximum number of evidence items accepted for this evidence category.",
+            "example": "1"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
 
 ========================================================================
 
@@ -29999,6 +31571,400 @@ objectobject
 
 ========================================================================
 
+# apidocs/list-all-disputes-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# List all disputes
+
+> Retrieve a paginated list of disputes associated with the Business ID.
+
+## OpenAPI
+
+````json GET /v1/disputes
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes": {
+      "get": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "listDisputes",
+        "summary": "List all disputes",
+        "description": "Retrieve a paginated list of disputes associated with the Business ID.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of disputes to return per page. Defaults to 10, maximum 100.",
+            "schema": {
+              "type": "integer",
+              "default": "10",
+              "maximum": "100"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Dispute ID from pagination.next_cursor for fetching the next page.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter disputes by lifecycle status. Use ACTION_REQUIRED to find disputes requiring your response.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ACTION_REQUIRED",
+                "UNDER_REVIEW",
+                "WON",
+                "LOST"
+              ]
+            }
+          },
+          {
+            "name": "payment_id",
+            "in": "query",
+            "description": "Filter disputes by a specific Payment ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "channel_code",
+            "in": "query",
+            "description": "Filter disputes by payment channel (e.g., CARDS, QRIS).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "card_brands",
+            "in": "query",
+            "description": "Filter card disputes by card network (e.g., VISA, MASTERCARD). Only applicable when channel_code is CARDS.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "description": "Filter disputes by currency using ISO-4217 currency code (e.g., IDR, PHP, USD).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "created_after",
+            "in": "query",
+            "description": "Return only disputes created after this timestamp (ISO 8601 format).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_before",
+            "in": "query",
+            "description": "Return only disputes created before this timestamp (ISO 8601 format).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "due_date_after",
+            "in": "query",
+            "description": "Return only disputes with a response deadline after this timestamp (ISO 8601 format).",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "due_date_before",
+            "in": "query",
+            "description": "Return only disputes with a response deadline before this timestamp. Use this to surface disputes expiring soon.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Full-text search across dispute ID, payment ID, and reference ID.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of disputes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Merchant_Dispute_API_DisputeListItem"
+                      }
+                    },
+                    "pagination": {
+                      "$ref": "#/components/schemas/Merchant_Dispute_API_Pagination"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access not allowed for this business.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "RESTRICTED_ACCESS",
+                  "message": "Access to this resource is restricted."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_DisputeListItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "status_reason",
+          "channel_code",
+          "currency",
+          "amount",
+          "due_date",
+          "category",
+          "note",
+          "payment_id",
+          "reference_id",
+          "created_at",
+          "updated_at"
+        ],
+        "description": "Minimal dispute representation for list responses.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Xendit-generated unique dispute identifier.",
+            "example": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current lifecycle state. ACTION_REQUIRED means a response is needed before due_date.",
+            "enum": [
+              "ACTION_REQUIRED",
+              "UNDER_REVIEW",
+              "WON",
+              "LOST"
+            ],
+            "example": "ACTION_REQUIRED"
+          },
+          "status_reason": {
+            "type": "string",
+            "description": "Reason for the terminal outcome. Only populated when status is WON or LOST.",
+            "nullable": "true",
+            "enum": [
+              "EXCEEDED_DEADLINE",
+              "ACCEPTED",
+              "CHALLENGED",
+              "WITHDRAWN",
+              "ARBITRATION",
+              "NEED_MORE_INFORMATION"
+            ],
+            "example": "EXCEEDED_DEADLINE"
+          },
+          "channel_code": {
+            "type": "string",
+            "description": "Payment channel through which the original transaction was made (e.g., CARDS, QRIS).",
+            "example": "CARDS"
+          },
+          "card_brands": {
+            "type": "string",
+            "description": "Card network associated with the dispute. Only present when channel_code is CARDS.",
+            "example": "VISA"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency of the disputed amount, in ISO-4217 format.",
+            "example": "USD"
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Merchant_Dispute_API_DisputeAmount"
+          },
+          "due_date": {
+            "type": "string",
+            "description": "Deadline by which you must respond to avoid an automatic LOST outcome.",
+            "format": "date-time",
+            "example": "2026-09-10T04:11:54.917Z"
+          },
+          "note": {
+            "type": "string",
+            "description": "Optional message from Xendit providing guidance on the dispute.",
+            "nullable": "true",
+            "example": null
+          },
+          "category": {
+            "type": "string",
+            "description": "Slug identifier of the dispute category. The full category object with allowed evidence types is available in GET /v1/disputes/{dispute_id}.",
+            "example": "fraudulent"
+          },
+          "payment_id": {
+            "type": "string",
+            "description": "Xendit payment identifier for the original disputed transaction.",
+            "nullable": "true",
+            "example": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7"
+          },
+          "reference_id": {
+            "type": "string",
+            "nullable": "true",
+            "description": "Your reference ID for the original transaction.",
+            "example": "dispute-test-1788408708890"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the dispute was created, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:11:58.756Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "Timestamp of the most recent update, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:14:53.499Z"
+          }
+        }
+      },
+      "Merchant_Dispute_API_Pagination": {
+        "type": "object",
+        "properties": {
+          "next_cursor": {
+            "type": "string",
+            "nullable": "true",
+            "description": "The ID of the last dispute in the current page. Pass as the `cursor` query parameter to fetch the next page. Null when there are no more results.",
+            "example": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7"
+          },
+          "has_more": {
+            "type": "boolean",
+            "description": "Whether there are more results beyond this page.",
+            "example": "true"
+          }
+        }
+      },
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      },
+      "Merchant_Dispute_API_DisputeAmount": {
+        "type": "object",
+        "properties": {
+          "initial": {
+            "type": "string",
+            "description": "The amount when the dispute was first raised.",
+            "example": "1000.00"
+          },
+          "terminal": {
+            "type": "string",
+            "nullable": "true",
+            "description": "The final resolved amount. May differ from initial for partial disputes. Null while unresolved.",
+            "example": "1000.00"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
+
+========================================================================
+
 # apidocs/list-transactions.md
 
 ========================================================================
@@ -35859,6 +37825,380 @@ objectobject
 
 ========================================================================
 
+# apidocs/simulate-a-dispute-sandbox-only-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Simulate a dispute (Sandbox Only)
+
+> Create or resolve simulated disputes in the sandbox environment to test your integration. The workflow is two-phase: first create a simulated dispute using CREATE_DISPUTE or CREATE_DISPUTE_EXCEED_DEADLINE, then resolve it using DISPUTE_WON or DISPUTE_LOST.
+
+## OpenAPI
+
+````json POST /v1/disputes/simulate
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/simulate": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "simulateDispute",
+        "summary": "Simulate a dispute (Sandbox Only)",
+        "description": "Create or resolve simulated disputes in the sandbox environment to test your integration. The workflow is two-phase: first create a simulated dispute using CREATE_DISPUTE or CREATE_DISPUTE_EXCEED_DEADLINE, then resolve it using DISPUTE_WON or DISPUTE_LOST.",
+        "requestBody": {
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Merchant_Dispute_API_SimulateCreate"
+                  },
+                  {
+                    "$ref": "#/components/schemas/Merchant_Dispute_API_SimulateResolve"
+                  }
+                ]
+              },
+              "examples": {
+                "create_dispute": {
+                  "summary": "Create a simulated dispute",
+                  "value": {
+                    "scenario": "CREATE_DISPUTE",
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "amount": "100000",
+                    "currency": "IDR",
+                    "product_type": "CARDS",
+                    "channel_code": "CARDS"
+                  }
+                },
+                "create_dispute_exceed_deadline": {
+                  "summary": "Create a simulated dispute that will exceed deadline",
+                  "value": {
+                    "scenario": "CREATE_DISPUTE_EXCEED_DEADLINE",
+                    "payment_id": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7",
+                    "amount": "100000",
+                    "currency": "IDR",
+                    "product_type": "CARDS",
+                    "channel_code": "CARDS",
+                    "deadline": "instant"
+                  }
+                },
+                "resolve_won": {
+                  "summary": "Resolve simulated dispute as WON",
+                  "value": {
+                    "scenario": "DISPUTE_WON",
+                    "dispute_id": "mi-dspt-48e96517-9889-4e29-a93e-d1ffae1fa366"
+                  }
+                },
+                "resolve_lost": {
+                  "summary": "Resolve simulated dispute as LOST",
+                  "value": {
+                    "scenario": "DISPUTE_LOST",
+                    "dispute_id": "mi-dspt-48e96517-9889-4e29-a93e-d1ffae1fa366"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Simulation triggered successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_SimulateResponse"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Simulation resolved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_SimulateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "examples": {
+                  "invalid_scenario": {
+                    "value": {
+                      "error_code": "INVALID_SCENARIO",
+                      "message": "Invalid scenario."
+                    }
+                  },
+                  "payment_not_found": {
+                    "value": {
+                      "error_code": "PAYMENT_NOT_FOUND",
+                      "message": "The specified payment was not found."
+                    }
+                  },
+                  "payment_not_settled": {
+                    "value": {
+                      "error_code": "PAYMENT_NOT_SETTLED",
+                      "message": "The specified payment is not in a settled state."
+                    }
+                  },
+                  "illegal_state": {
+                    "value": {
+                      "error_code": "ILLEGAL_STATE",
+                      "message": "Evidence must be submitted before resolving a simulated dispute."
+                    }
+                  },
+                  "invalid_request": {
+                    "value": {
+                      "error_code": "INVALID_REQUEST",
+                      "message": "Invalid deadline value. Accepted values: instant, 1m, 2m, 3m, 5m."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "This endpoint is only available in sandbox environment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "UNAVAILABLE_IN_LIVE_MODE",
+                  "message": "This endpoint is only available in test mode."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A resolve scenario has already been applied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "ILLEGAL_STATE",
+                  "message": "A resolve scenario has already been applied to this simulated dispute."
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. Maximum simulated disputes per time window exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "example": {
+                  "error_code": "TOO_MANY_REQUESTS",
+                  "message": "Maximum of 5 simulated disputes per 24 hours exceeded."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_SimulateCreate": {
+        "type": "object",
+        "required": [
+          "scenario",
+          "payment_id",
+          "amount",
+          "currency",
+          "product_type",
+          "channel_code"
+        ],
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "description": "CREATE_DISPUTE creates a dispute in ACTION_REQUIRED with a realistic deadline. CREATE_DISPUTE_EXCEED_DEADLINE creates a dispute that automatically expires.",
+            "enum": [
+              "CREATE_DISPUTE",
+              "CREATE_DISPUTE_EXCEED_DEADLINE"
+            ],
+            "example": "CREATE_DISPUTE"
+          },
+          "payment_id": {
+            "type": "string",
+            "description": "Xendit payment ID of an existing settled payment to attach the simulated dispute to.",
+            "example": "py-59a3cf39-2a7d-4733-a3e3-8177c78090f7"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Dispute amount as a decimal string.",
+            "example": "1000.00"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency of the simulated dispute amount, in ISO-4217 format.",
+            "example": "IDR"
+          },
+          "product_type": {
+            "type": "string",
+            "enum": [
+              "CARDS",
+              "QR"
+            ],
+            "description": "Product classification for the simulated dispute (e.g., CARDS, QR).",
+            "example": "CARDS"
+          },
+          "channel_code": {
+            "type": "string",
+            "description": "Specific channel for the simulated dispute. Must be consistent with product_type.",
+            "example": "CARDS"
+          },
+          "deadline": {
+            "type": "string",
+            "enum": [
+              "instant",
+              "1m",
+              "2m",
+              "3m",
+              "5m"
+            ],
+            "description": "Optional deadline override for the simulated dispute. Only used with CREATE_DISPUTE_EXCEED_DEADLINE scenario.",
+            "example": "instant"
+          }
+        }
+      },
+      "Merchant_Dispute_API_SimulateResolve": {
+        "type": "object",
+        "required": [
+          "scenario",
+          "dispute_id"
+        ],
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "description": "DISPUTE_WON resolves in the merchant's favor. DISPUTE_LOST resolves against the merchant.",
+            "enum": [
+              "DISPUTE_WON",
+              "DISPUTE_LOST"
+            ],
+            "example": "DISPUTE_WON"
+          },
+          "dispute_id": {
+            "type": "string",
+            "description": "ID of the simulated dispute to resolve.",
+            "example": "mi-dspt-48e96517-9889-4e29-a93e-d1ffae1fa366"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Optional resolved amount. Defaults to the full initial amount. Provide a lower value to simulate a partial chargeback.",
+            "example": "1000.00"
+          }
+        }
+      },
+      "Merchant_Dispute_API_SimulateResponse": {
+        "type": "object",
+        "properties": {
+          "dispute_id": {
+            "type": "string",
+            "description": "ID of the dispute that was created or resolved by this simulation.",
+            "example": "mi-dspt-f44d259f-fd9d-4de9-80de-1eef3f1506b7"
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Timestamp when the simulated dispute was created, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2026-09-03T04:11:58.756Z"
+          }
+        }
+      },
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
+
+========================================================================
+
 # apidocs/simulate-cycle-payment.md
 
 ========================================================================
@@ -37526,6 +39866,303 @@ messagestring
 <select class='api-response-data' aria-label='Media type'><option value='824bd2db-b076-4491-8d15-87903819af04'>application/json</option>
 </select>object  error_codestring    
 messagestring
+
+========================================================================
+
+# apidocs/submit-evidence-via-multipart-upload-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Submit evidence via multipart upload
+
+> Submit one or more pieces of evidence to a dispute using multipart/form-data. Each form field name is the evidence category slug (from category.allowed_evidence[].name). For FILE evidence, the field value is the file binary. The server validates its detected MIME type against the configured allowlist, which defaults to image/png, image/jpeg, and application/pdf. For TEXT evidence, the field value is the text string. Maximum 10 evidence items per request. One submission per evidence category slug. Evidence can only be submitted while the dispute is in ACTION_REQUIRED status. Submitting evidence does not automatically trigger a challenge — call POST /v1/disputes/{dispute_id}/challenge to finalize and forward your case.
+
+## OpenAPI
+
+````json POST /v1/disputes/{dispute_id}/evidences
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}/evidences": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "createDisputeEvidence",
+        "summary": "Submit evidence via multipart upload",
+        "description": "Submit one or more pieces of evidence to a dispute using multipart/form-data. Each form field name is the evidence category slug (from category.allowed_evidence[].name). For FILE evidence, the field value is the file binary. The server validates its detected MIME type against the configured allowlist, which defaults to image/png, image/jpeg, and application/pdf. For TEXT evidence, the field value is the text string. Maximum 10 evidence items per request. One submission per evidence category slug. Evidence can only be submitted while the dispute is in ACTION_REQUIRED status. Submitting evidence does not automatically trigger a challenge — call POST /v1/disputes/{dispute_id}/challenge to finalize and forward your case.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute to submit evidence for. The dispute must be in ACTION_REQUIRED status."
+          }
+        ],
+        "requestBody": {
+          "required": "true",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "description": "Each field name is an evidence category slug. File fields contain the binary file. Text fields contain the text content string.",
+                "additionalProperties": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "format": "binary",
+                      "description": "File evidence (field name = category slug, value = file binary)."
+                    },
+                    {
+                      "type": "string",
+                      "description": "Text evidence (field name = category slug, value = text content)."
+                    }
+                  ]
+                }
+              },
+              "examples": {
+                "file_evidence": {
+                  "summary": "Single file upload",
+                  "value": {
+                    "ITEMIZED_RECEIPTS": "(binary file content)"
+                  }
+                },
+                "text_evidence": {
+                  "summary": "Single text evidence",
+                  "value": {
+                    "OFFICIAL_MERCHANT_STATEMENT": "The customer completed the transaction at our store."
+                  }
+                },
+                "mixed_evidence": {
+                  "summary": "Multiple evidence items in one request",
+                  "value": {
+                    "ITEMIZED_RECEIPTS": "(binary file content)",
+                    "OFFICIAL_MERCHANT_STATEMENT": "Customer was present at the store."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Evidence submission result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_AddEvidenceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Evidence submission not allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Merchant_Dispute_API_ErrorResponse"
+                },
+                "examples": {
+                  "illegal_state": {
+                    "value": {
+                      "error_code": "ILLEGAL_STATE",
+                      "message": "The requested action is not allowed in the current dispute state."
+                    }
+                  },
+                  "category_not_allowed": {
+                    "value": {
+                      "error_code": "EVIDENCE_CATEGORY_NOT_ALLOWED",
+                      "message": "Evidence category 'invalid_slug' is not allowed for this dispute's category."
+                    }
+                  },
+                  "category_limit": {
+                    "value": {
+                      "error_code": "CATEGORY_LIMIT_REACHED",
+                      "message": "Per-category evidence limit reached for category 'proof_of_delivery'."
+                    }
+                  },
+                  "unsupported_type": {
+                    "value": {
+                      "error_code": "UNSUPPORTED_EVIDENCE_TYPE",
+                      "message": "File type is not supported."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Merchant_Dispute_API_AddEvidenceResponse": {
+        "type": "object",
+        "description": "Response for multipart evidence submission.",
+        "properties": {
+          "dispute_id": {
+            "type": "string",
+            "description": "The dispute ID for which evidence was submitted.",
+            "example": "mi-dspt-48e96517-9889-4e29-a93e-d1ffae1fa366"
+          },
+          "evidences_succeeded": {
+            "type": "array",
+            "description": "Evidence items that were successfully processed.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Xendit-generated identifier for this evidence item.",
+                  "example": "mi-dspt-evd-20d5cc8a-4ba0-4378-b96f-c4bcbb8a1d0e"
+                },
+                "category_slug": {
+                  "type": "string",
+                  "description": "The evidence category this item was filed under.",
+                  "example": "ITEMIZED_RECEIPTS"
+                },
+                "filename": {
+                  "type": "string",
+                  "description": "Original filename. Only present for FILE evidence.",
+                  "example": "receipt.pdf"
+                },
+                "mime_type": {
+                  "type": "string",
+                  "description": "Detected MIME type. Only present for FILE evidence.",
+                  "example": "application/pdf"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "FILE or TEXT.",
+                  "enum": [
+                    "FILE",
+                    "TEXT"
+                  ],
+                  "example": "FILE"
+                },
+                "content_hash": {
+                  "type": "string",
+                  "description": "MD5 integrity hash prefixed with md5:. Only present for FILE evidence.",
+                  "example": "md5:318d5cb8146d90b9f02a9fe5809583aa"
+                }
+              }
+            }
+          },
+          "evidences_failed": {
+            "type": "array",
+            "description": "Evidence items that could not be processed. Only these items need to be resubmitted after correcting the issue.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "filename": {
+                  "type": "string",
+                  "description": "The filename of the file that failed.",
+                  "example": "receipt.pdf"
+                },
+                "reason": {
+                  "type": "string",
+                  "description": "Human-readable explanation of why this item failed.",
+                  "example": "File type 'text/plain' is not supported for 'receipt.pdf'."
+                },
+                "category_slug": {
+                  "type": "string",
+                  "description": "The evidence category slug that was submitted.",
+                  "example": "ITEMIZED_RECEIPTS"
+                },
+                "error_code": {
+                  "type": "string",
+                  "description": "Machine-readable failure code.",
+                  "example": "UNSUPPORTED_EVIDENCE_TYPE"
+                }
+              }
+            }
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable summary of the overall submission result.",
+            "example": "Evidence processed successfully."
+          }
+        }
+      },
+      "Merchant_Dispute_API_ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": {
+            "type": "string",
+            "example": "ILLEGAL_STATE"
+          },
+          "message": {
+            "type": "string",
+            "example": "The requested action is not allowed in the current dispute state."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
+````
 
 ========================================================================
 
@@ -41467,6 +44104,165 @@ objectobject
             ]
           }
         }
+      }
+    }
+  }
+}
+````
+
+========================================================================
+
+# apidocs/update-text-evidence-1.md
+
+========================================================================
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.xendit.co/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Update text evidence
+
+> Replace the text content of a previously submitted TEXT evidence item. Only TEXT evidence can be modified; FILE evidence must be deleted and re-uploaded. The dispute must still be in ACTION_REQUIRED status.
+
+## OpenAPI
+
+````json PATCH /v1/disputes/{dispute_id}/evidences/{evidence_id}
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payments",
+    "version": "3.0.0",
+    "description": "Payments API enables businesses to integrate seamless and secure payment processing into their platforms, \nsupporting key features like a customizable checkout page for user-friendly payment experiences, \ndirect payments through API for tailored and flexible transaction flows, \nand recurring subscriptions to automate billing for memberships or SaaS. \nThese APIs streamline payment processing by supporting multiple payment channels, \nensuring PCI compliance, and offering features like tokenization, real-time transactions, \nand automated retries for subscription payments, making them essential for modern, scalable businesses.\n"
+  },
+  "servers": [
+    {
+      "url": "https://api.xendit.co",
+      "description": "Xendit API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Payment Request",
+      "x-displayName": "Payment Request"
+    },
+    {
+      "name": "Refund",
+      "x-displayName": "Refund"
+    },
+    {
+      "name": "Payment",
+      "x-displayName": "Payment"
+    },
+    {
+      "name": "Payment Token",
+      "x-displayName": "Payment Token"
+    },
+    {
+      "name": "Subscriptions",
+      "description": "Manage recurring plans and cycles",
+      "x-displayName": "Subscriptions"
+    },
+    {
+      "name": "Session",
+      "x-displayName": "Session"
+    },
+    {
+      "name": "Disputes",
+      "description": "Core dispute management endpoints",
+      "x-displayName": "Disputes"
+    }
+  ],
+  "paths": {
+    "/v1/disputes/{dispute_id}/evidences/{evidence_id}": {
+      "patch": {
+        "tags": [
+          "Disputes"
+        ],
+        "operationId": "updateDisputeEvidence",
+        "summary": "Update text evidence",
+        "description": "Replace the text content of a previously submitted TEXT evidence item. Only TEXT evidence can be modified; FILE evidence must be deleted and re-uploaded. The dispute must still be in ACTION_REQUIRED status.",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the dispute that owns this evidence."
+          },
+          {
+            "name": "evidence_id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the evidence item to update."
+          }
+        ],
+        "requestBody": {
+          "required": "true",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "text_content"
+                ],
+                "properties": {
+                  "text_content": {
+                    "type": "string",
+                    "description": "Updated text content."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Evidence text content updated successfully."
+          },
+          "422": {
+            "description": "Evidence is not a text type.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error_code": {
+                      "type": "string",
+                      "enum": [
+                        "EVIDENCE_NOT_TEXT"
+                      ]
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error_code": "EVIDENCE_NOT_TEXT",
+                  "message": "Only TEXT evidence can be updated. This evidence is of type FILE."
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Merchant_Dispute_API_BasicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Merchant_Dispute_API_BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
       }
     }
   }

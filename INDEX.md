@@ -1,10 +1,11 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 349
+Pages: 358
 
 | Path | First heading |
 |---|---|
 | [NOTICE.md](https://docs.xendit.co/NOTICE.md) | NOTICE |
+| [apidocs/accept-a-dispute-1.md](https://docs.xendit.co/apidocs/accept-a-dispute-1.md) | Accept a dispute |
 | [apidocs/account-holder-capabilities-notification-webhook.md](https://docs.xendit.co/apidocs/account-holder-capabilities-notification-webhook.md) | Account holder capabilities notification webhook |
 | [apidocs/account-holder-kyc-status-notification-webhook.md](https://docs.xendit.co/apidocs/account-holder-kyc-status-notification-webhook.md) | Account holder KYC status notification webhook |
 | [apidocs/account-suspension-webhook-notification.md](https://docs.xendit.co/apidocs/account-suspension-webhook-notification.md) | Account suspension webhook notification |
@@ -34,8 +35,11 @@ Pages: 349
 | [apidocs/create-split-rule.md](https://docs.xendit.co/apidocs/create-split-rule.md) | Create split rule |
 | [apidocs/create-transfers.md](https://docs.xendit.co/apidocs/create-transfers.md) | Create transfers |
 | [apidocs/deactivate-subscription-plan-2.md](https://docs.xendit.co/apidocs/deactivate-subscription-plan-2.md) | Deactivate Subscription Plan |
+| [apidocs/delete-a-submitted-evidence-1.md](https://docs.xendit.co/apidocs/delete-a-submitted-evidence-1.md) | Delete a submitted evidence |
 | [apidocs/delete-file-by-id.md](https://docs.xendit.co/apidocs/delete-file-by-id.md) | Delete file by ID |
+| [apidocs/dispute-webhook-notifications.md](https://docs.xendit.co/apidocs/dispute-webhook-notifications.md) | Dispute Webhook Notifications |
 | [apidocs/download-file-by-id.md](https://docs.xendit.co/apidocs/download-file-by-id.md) | Download file by ID |
+| [apidocs/finalize-and-submit-evidence-1.md](https://docs.xendit.co/apidocs/finalize-and-submit-evidence-1.md) | Finalize and submit evidence |
 | [apidocs/force-attempt-subscription-cycle-2.md](https://docs.xendit.co/apidocs/force-attempt-subscription-cycle-2.md) | Force Attempt Subscription Cycle |
 | [apidocs/foreign-exchange-introduction.md](https://docs.xendit.co/apidocs/foreign-exchange-introduction.md) | Introduction |
 | [apidocs/generate-report.md](https://docs.xendit.co/apidocs/generate-report.md) | Generate Report |
@@ -45,6 +49,7 @@ Pages: 349
 | [apidocs/get-conversion-by-id.md](https://docs.xendit.co/apidocs/get-conversion-by-id.md) | Get Conversion by ID |
 | [apidocs/get-customer-id.md](https://docs.xendit.co/apidocs/get-customer-id.md) | Get customer by id |
 | [apidocs/get-customers-list.md](https://docs.xendit.co/apidocs/get-customers-list.md) | Get customers list |
+| [apidocs/get-dispute-details-1.md](https://docs.xendit.co/apidocs/get-dispute-details-1.md) | Get dispute details |
 | [apidocs/get-file-by-id.md](https://docs.xendit.co/apidocs/get-file-by-id.md) | Get file by ID |
 | [apidocs/get-list-of-subscription-cycles-2.md](https://docs.xendit.co/apidocs/get-list-of-subscription-cycles-2.md) | Get List of Subscription Cycles |
 | [apidocs/get-payment-detail.md](https://docs.xendit.co/apidocs/get-payment-detail.md) | Get Payment Detail |
@@ -64,6 +69,7 @@ Pages: 349
 | [apidocs/introduction-1.md](https://docs.xendit.co/apidocs/introduction-1.md) | Introduction |
 | [apidocs/introduction.md](https://docs.xendit.co/apidocs/introduction.md) | Introduction |
 | [apidocs/list-accounts.md](https://docs.xendit.co/apidocs/list-accounts.md) | List accounts |
+| [apidocs/list-all-disputes-1.md](https://docs.xendit.co/apidocs/list-all-disputes-1.md) | List all disputes |
 | [apidocs/list-transactions.md](https://docs.xendit.co/apidocs/list-transactions.md) | List Transactions |
 | [apidocs/managed-account-status-webhook-notification.md](https://docs.xendit.co/apidocs/managed-account-status-webhook-notification.md) | Managed account status webhook notification |
 | [apidocs/others-introduction.md](https://docs.xendit.co/apidocs/others-introduction.md) | Introduction |
@@ -80,16 +86,19 @@ Pages: 349
 | [apidocs/report-webhook-notification.md](https://docs.xendit.co/apidocs/report-webhook-notification.md) | Report webhook notification |
 | [apidocs/retrieve-account-verification.md](https://docs.xendit.co/apidocs/retrieve-account-verification.md) | Retrieve account verification |
 | [apidocs/set-webhook-url.md](https://docs.xendit.co/apidocs/set-webhook-url.md) | Set webhook URL |
+| [apidocs/simulate-a-dispute-sandbox-only-1.md](https://docs.xendit.co/apidocs/simulate-a-dispute-sandbox-only-1.md) | Simulate a dispute (Sandbox Only) |
 | [apidocs/simulate-cycle-payment.md](https://docs.xendit.co/apidocs/simulate-cycle-payment.md) | Simulate cycle payment |
 | [apidocs/simulate-payment-test-mode.md](https://docs.xendit.co/apidocs/simulate-payment-test-mode.md) | Simulate payment [test mode] |
 | [apidocs/split-payment-status-notification-webhook.md](https://docs.xendit.co/apidocs/split-payment-status-notification-webhook.md) | Split payment status notification webhook |
 | [apidocs/submit-account-verification.md](https://docs.xendit.co/apidocs/submit-account-verification.md) | Submit account verification |
+| [apidocs/submit-evidence-via-multipart-upload-1.md](https://docs.xendit.co/apidocs/submit-evidence-via-multipart-upload-1.md) | Submit evidence via multipart upload |
 | [apidocs/subscription-webhook.md](https://docs.xendit.co/apidocs/subscription-webhook.md) | Subscription Webhook |
 | [apidocs/update-account-holder.md](https://docs.xendit.co/apidocs/update-account-holder.md) | Update account holder |
 | [apidocs/update-account.md](https://docs.xendit.co/apidocs/update-account.md) | Update account |
 | [apidocs/update-customer.md](https://docs.xendit.co/apidocs/update-customer.md) | Update Customer |
 | [apidocs/update-subscription-cycle-2.md](https://docs.xendit.co/apidocs/update-subscription-cycle-2.md) | Update Subscription Cycle |
 | [apidocs/update-subscription-plan-2.md](https://docs.xendit.co/apidocs/update-subscription-plan-2.md) | Update Subscription Plan |
+| [apidocs/update-text-evidence-1.md](https://docs.xendit.co/apidocs/update-text-evidence-1.md) | Update text evidence |
 | [apidocs/upload-file.md](https://docs.xendit.co/apidocs/upload-file.md) | Upload file |
 | [apidocs/webhook-behavior.md](https://docs.xendit.co/apidocs/webhook-behavior.md) | Webhook behavior |
 | [apidocs/webhook-notification-sent-defined-webhook-url-updates-payment-session.md](https://docs.xendit.co/apidocs/webhook-notification-sent-defined-webhook-url-updates-payment-session.md) | Webhook notification that will be sent to your defined webhook url for updates to payment session status |
