@@ -154,7 +154,7 @@
 - [Card token migration guide](https://docs.xendit.co/docs/cards-token-migration.md)
 - [Virtual Credit Card processing](https://docs.xendit.co/docs/cards-virtual-credit-card-processing.md)
 - [Network tokens](https://docs.xendit.co/docs/cards-network-tokens.md)
-- [Card multi-currency processing](https://docs.xendit.co/docs/card-multi-currency-processing.md)
+- [Card multi-currency processing](https://docs.xendit.co/docs/card-multi-currency-processing.md): Optimize your international sales with Xendit's Card Multi-Currency Processing, allowing shoppers to pay in their currency while you settle in yours.
 - [Mastercard Transaction Link ID](https://docs.xendit.co/docs/mastercard-transaction-link-id.md)
 - [Pay with authentication (3DS2)](https://docs.xendit.co/docs/pay-with-authentication.md)
 - [Pay and save (tokenizing the card)](https://docs.xendit.co/docs/create-a-token.md)
