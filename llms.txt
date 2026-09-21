@@ -27,7 +27,6 @@
 - [Akulaku](https://docs.xendit.co/docs/akulaku.md)
 - [AstraPay](https://docs.xendit.co/docs/astrapay.md)
 - [BCA Virtual Account](https://docs.xendit.co/docs/bca-virtual-account.md)
-- [BJB Virtual Accounts](https://docs.xendit.co/docs/bjb-virtual-account.md)
 - [BNC Virtual Account](https://docs.xendit.co/docs/bnc-virtual-account.md)
 - [BNI Virtual Account](https://docs.xendit.co/docs/bni-virtual-account.md)
 - [BRI Virtual Account](https://docs.xendit.co/docs/bri-virtual-account.md)
