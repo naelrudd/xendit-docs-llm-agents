@@ -1,3 +1,3 @@
 source: https://docs.xendit.co/llms.txt
 pages: 357
-synced: 2026-09-21T08:52:00Z
+synced: 2026-09-28T09:41:02Z
