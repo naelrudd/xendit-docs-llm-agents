@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 358
+Pages: 365
 
 | Path | First heading |
 |---|---|
@@ -15,6 +15,7 @@ Pages: 358
 | [apidocs/cancel-payment-request.md](https://docs.xendit.co/apidocs/cancel-payment-request.md) | Cancel a payment request |
 | [apidocs/cancel-payment-token.md](https://docs.xendit.co/apidocs/cancel-payment-token.md) | Cancel and deactivate a payment token |
 | [apidocs/cancel-payment.md](https://docs.xendit.co/apidocs/cancel-payment.md) | Cancel a payment |
+| [apidocs/cancel-payout.md](https://docs.xendit.co/apidocs/cancel-payout.md) | Cancel Payout |
 | [apidocs/cancel-session.md](https://docs.xendit.co/apidocs/cancel-session.md) | Cancel a session |
 | [apidocs/cancel-subscription-cycle-2.md](https://docs.xendit.co/apidocs/cancel-subscription-cycle-2.md) | Cancel Subscription Cycle |
 | [apidocs/capture-payment.md](https://docs.xendit.co/apidocs/capture-payment.md) | Capture a payment |
@@ -93,6 +94,7 @@ Pages: 358
 | [apidocs/submit-account-verification.md](https://docs.xendit.co/apidocs/submit-account-verification.md) | Submit account verification |
 | [apidocs/submit-evidence-via-multipart-upload-1.md](https://docs.xendit.co/apidocs/submit-evidence-via-multipart-upload-1.md) | Submit evidence via multipart upload |
 | [apidocs/subscription-webhook.md](https://docs.xendit.co/apidocs/subscription-webhook.md) | Subscription Webhook |
+| [apidocs/update-a-payment-request.md](https://docs.xendit.co/apidocs/update-a-payment-request.md) | Update a payment request |
 | [apidocs/update-account-holder.md](https://docs.xendit.co/apidocs/update-account-holder.md) | Update account holder |
 | [apidocs/update-account.md](https://docs.xendit.co/apidocs/update-account.md) | Update account |
 | [apidocs/update-customer.md](https://docs.xendit.co/apidocs/update-customer.md) | Update Customer |
@@ -108,6 +110,7 @@ Pages: 358
 | [docs/account-security-overview.md](https://docs.xendit.co/docs/account-security-overview.md) | Overview |
 | [docs/account-verification-enumerations.md](https://docs.xendit.co/docs/account-verification-enumerations.md) | Account Verification Enumerations |
 | [docs/activate-payment-channels.md](https://docs.xendit.co/docs/activate-payment-channels.md) | Activate payment channels |
+| [docs/activate-payment-methods.md](https://docs.xendit.co/docs/activate-payment-methods.md) | Activate payment methods |
 | [docs/activate-xenplatform.md](https://docs.xendit.co/docs/activate-xenplatform.md) | Activate xenPlatform |
 | [docs/add-withdrawal-bank-account.md](https://docs.xendit.co/docs/add-withdrawal-bank-account.md) | Add withdrawal bank account |
 | [docs/akulaku.md](https://docs.xendit.co/docs/akulaku.md) | Akulaku |
@@ -125,6 +128,7 @@ Pages: 358
 | [docs/auto-withdrawal.md](https://docs.xendit.co/docs/auto-withdrawal.md) | Auto-Withdrawal |
 | [docs/available-integrations.md](https://docs.xendit.co/docs/available-integrations.md) | Available integrations |
 | [docs/available-payment-channels.md](https://docs.xendit.co/docs/available-payment-channels.md) | Available payment channels |
+| [docs/available-payment-methods.md](https://docs.xendit.co/docs/available-payment-methods.md) | Available payment methods |
 | [docs/available-payment-products.md](https://docs.xendit.co/docs/available-payment-products.md) | Choose your integration |
 | [docs/balance-overview.md](https://docs.xendit.co/docs/balance-overview.md) | Overview |
 | [docs/balance-report.md](https://docs.xendit.co/docs/balance-report.md) | Balance report |
@@ -236,6 +240,7 @@ Pages: 358
 | [docs/merchant-initiated-transaction-1.md](https://docs.xendit.co/docs/merchant-initiated-transaction-1.md) | Pay without authentication (no 3DS2) |
 | [docs/merchant-initiated-transaction-2.md](https://docs.xendit.co/docs/merchant-initiated-transaction-2.md) | Merchant initiated and recurring flagging |
 | [docs/migrate-direct-per-channel-apis-to-v3.md](https://docs.xendit.co/docs/migrate-direct-per-channel-apis-to-v3.md) | Migrate Direct per-Channel APIs to Payments API v3 |
+| [docs/migrate-direct-per-method-apis-to-v3.md](https://docs.xendit.co/docs/migrate-direct-per-method-apis-to-v3.md) | Migrate Direct per-Method APIs to Payments API v3 |
 | [docs/migrate-from-legacy-subscriptions-to-new-subscriptions.md](https://docs.xendit.co/docs/migrate-from-legacy-subscriptions-to-new-subscriptions.md) | Migrating to new subscription version |
 | [docs/migrate-payment-api-v2-to-v3.md](https://docs.xendit.co/docs/migrate-payment-api-v2-to-v3.md) | Migrate Payment API v2 to v3 |
 | [docs/migrate-to-payment-session.md](https://docs.xendit.co/docs/migrate-to-payment-session.md) | Migrate from (legacy) Payment Links/Invoice to Payment Session |
@@ -266,6 +271,7 @@ Pages: 358
 | [docs/payments-api-webhooks.md](https://docs.xendit.co/docs/payments-api-webhooks.md) |  |
 | [docs/payments-integration-setup.md](https://docs.xendit.co/docs/payments-integration-setup.md) |  |
 | [docs/payments-via-api-overview.md](https://docs.xendit.co/docs/payments-via-api-overview.md) | Overview |
+| [docs/paynow-qr.md](https://docs.xendit.co/docs/paynow-qr.md) | Paynow QR |
 | [docs/payout-coverage-australia.md](https://docs.xendit.co/docs/payout-coverage-australia.md) | Australia |
 | [docs/payout-coverage-china.md](https://docs.xendit.co/docs/payout-coverage-china.md) | China |
 | [docs/payout-coverage-hong-kong.md](https://docs.xendit.co/docs/payout-coverage-hong-kong.md) | Hong Kong |
@@ -332,6 +338,7 @@ Pages: 358
 | [docs/th-credit-card.md](https://docs.xendit.co/docs/th-credit-card.md) |  |
 | [docs/thailand-business-documents.md](https://docs.xendit.co/docs/thailand-business-documents.md) |  |
 | [docs/top-up-balance.md](https://docs.xendit.co/docs/top-up-balance.md) |  |
+| [docs/touch-n-go.md](https://docs.xendit.co/docs/touch-n-go.md) | Touch ‘n Go |
 | [docs/transaction-fees.md](https://docs.xendit.co/docs/transaction-fees.md) |  |
 | [docs/transaction-status.md](https://docs.xendit.co/docs/transaction-status.md) |  |
 | [docs/transactions-report.md](https://docs.xendit.co/docs/transactions-report.md) |  |
