@@ -253,8 +253,8 @@
 - [Handling webhooks](https://docs.xendit.co/docs/handling-webhooks.md)
 - [Delayed webhooks](https://docs.xendit.co/docs/delayed-webhooks.md)
 - [Migrate to Xendit's latest integration stack](https://docs.xendit.co/docs/migrating-to-xendit-s-latest-payments-stack.md)
-- [Migrate Payment API v2 to v3](https://docs.xendit.co/docs/migrate-payment-api-v2-to-v3.md)
-- [Migrate Direct per-Method APIs to Payments API v3](https://docs.xendit.co/docs/migrate-direct-per-method-apis-to-v3.md)
+- [Migrate Payment API v2 to Payments API](https://docs.xendit.co/docs/migrate-payment-api-v2-to-v3.md)
+- [Migrate Direct per-Method APIs to Payments API](https://docs.xendit.co/docs/migrate-direct-per-method-apis-to-v3.md)
 - [Migrate from (legacy) Payment Links/Invoice to Payment Session](https://docs.xendit.co/docs/migrate-to-payment-session.md)
 - [Migrating to new subscription version](https://docs.xendit.co/docs/migrate-from-legacy-subscriptions-to-new-subscriptions.md)
 
