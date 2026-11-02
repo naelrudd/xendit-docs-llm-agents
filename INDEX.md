@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 365
+Pages: 368
 
 | Path | First heading |
 |---|---|
@@ -20,6 +20,7 @@ Pages: 365
 | [apidocs/cancel-subscription-cycle-2.md](https://docs.xendit.co/apidocs/cancel-subscription-cycle-2.md) | Cancel Subscription Cycle |
 | [apidocs/capture-payment.md](https://docs.xendit.co/apidocs/capture-payment.md) | Capture a payment |
 | [apidocs/check-available-installment-plans.md](https://docs.xendit.co/apidocs/check-available-installment-plans.md) | Check available installment plans |
+| [apidocs/create-a-refund.md](https://docs.xendit.co/apidocs/create-a-refund.md) | Create a refund |
 | [apidocs/create-account-holder.md](https://docs.xendit.co/apidocs/create-account-holder.md) | Create account holder |
 | [apidocs/create-account-v3.md](https://docs.xendit.co/apidocs/create-account-v3.md) | Create account (v3) |
 | [apidocs/create-account.md](https://docs.xendit.co/apidocs/create-account.md) | Create account |
@@ -44,6 +45,7 @@ Pages: 365
 | [apidocs/force-attempt-subscription-cycle-2.md](https://docs.xendit.co/apidocs/force-attempt-subscription-cycle-2.md) | Force Attempt Subscription Cycle |
 | [apidocs/foreign-exchange-introduction.md](https://docs.xendit.co/apidocs/foreign-exchange-introduction.md) | Introduction |
 | [apidocs/generate-report.md](https://docs.xendit.co/apidocs/generate-report.md) | Generate Report |
+| [apidocs/get-a-refund.md](https://docs.xendit.co/apidocs/get-a-refund.md) | Get a refund |
 | [apidocs/get-account-holder.md](https://docs.xendit.co/apidocs/get-account-holder.md) | Get account holder |
 | [apidocs/get-account.md](https://docs.xendit.co/apidocs/get-account.md) | Get account |
 | [apidocs/get-balance.md](https://docs.xendit.co/apidocs/get-balance.md) | Get balance |
@@ -71,6 +73,7 @@ Pages: 365
 | [apidocs/introduction.md](https://docs.xendit.co/apidocs/introduction.md) | Introduction |
 | [apidocs/list-accounts.md](https://docs.xendit.co/apidocs/list-accounts.md) | List accounts |
 | [apidocs/list-all-disputes-1.md](https://docs.xendit.co/apidocs/list-all-disputes-1.md) | List all disputes |
+| [apidocs/list-refunds-for-a-payment.md](https://docs.xendit.co/apidocs/list-refunds-for-a-payment.md) | List refunds for a payment |
 | [apidocs/list-transactions.md](https://docs.xendit.co/apidocs/list-transactions.md) | List Transactions |
 | [apidocs/managed-account-status-webhook-notification.md](https://docs.xendit.co/apidocs/managed-account-status-webhook-notification.md) | Managed account status webhook notification |
 | [apidocs/others-introduction.md](https://docs.xendit.co/apidocs/others-introduction.md) | Introduction |
