@@ -257,6 +257,8 @@
 - [Migrate Direct per-Method APIs to Payments API](https://docs.xendit.co/docs/migrate-direct-per-method-apis-to-v3.md)
 - [Migrate from (legacy) Payment Links/Invoice to Payment Session](https://docs.xendit.co/docs/migrate-to-payment-session.md)
 - [Migrating to new subscription version](https://docs.xendit.co/docs/migrate-from-legacy-subscriptions-to-new-subscriptions.md)
+- [XenPlatform Migration Guide](https://docs.xendit.co/docs/xp-migration-guide.md): Migrate to the latest XenPlatform integration on Xendit
+- [XenPlatform V3 API Migration Guide](https://docs.xendit.co/docs/xenplatform-v3-api-migration-guide.md): Migrate to the latest version of XenPlatform on Xendit
 
 ## v1-api (API Reference)
 

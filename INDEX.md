@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 368
+Pages: 370
 
 | Path | First heading |
 |---|---|
@@ -369,6 +369,8 @@ Pages: 368
 | [docs/xenplatform-global-accounts-setup.md](https://docs.xendit.co/docs/xenplatform-global-accounts-setup.md) | Create sub-accounts |
 | [docs/xenplatform-monitoring-transactions.md](https://docs.xendit.co/docs/xenplatform-monitoring-transactions.md) | Monitoring transactions |
 | [docs/xenplatform-overview.md](https://docs.xendit.co/docs/xenplatform-overview.md) | Overview |
+| [docs/xenplatform-v3-api-migration-guide.md](https://docs.xendit.co/docs/xenplatform-v3-api-migration-guide.md) | XenPlatform V3 API Migration Guide |
+| [docs/xp-migration-guide.md](https://docs.xendit.co/docs/xp-migration-guide.md) | XenPlatform Migration Guide |
 | [docs/your-dashboard.md](https://docs.xendit.co/docs/your-dashboard.md) | Your dashboard |
 | [docs/your-invoice.md](https://docs.xendit.co/docs/your-invoice.md) | Understanding your Xendit invoices |
 | [docs/zalopay-e-wallet.md](https://docs.xendit.co/docs/zalopay-e-wallet.md) | Zalopay E-Wallet |
