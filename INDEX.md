@@ -1,6 +1,6 @@
 # Index — Docs
 Source: https://docs.xendit.co/llms.txt
-Pages: 370
+Pages: 371
 
 | Path | First heading |
 |---|---|
@@ -306,6 +306,7 @@ Pages: 370
 | [docs/qrph.md](https://docs.xendit.co/docs/qrph.md) |  |
 | [docs/rcbc-direct-debit.md](https://docs.xendit.co/docs/rcbc-direct-debit.md) |  |
 | [docs/reconciliations.md](https://docs.xendit.co/docs/reconciliations.md) |  |
+| [docs/reconciling-your-xendit-invoice.md](https://docs.xendit.co/docs/reconciling-your-xendit-invoice.md) | Reconciling your Xendit Invoice |
 | [docs/recover-failed-payments.md](https://docs.xendit.co/docs/recover-failed-payments.md) |  |
 | [docs/refund-payment-request.md](https://docs.xendit.co/docs/refund-payment-request.md) |  |
 | [docs/reports-overview.md](https://docs.xendit.co/docs/reports-overview.md) |  |

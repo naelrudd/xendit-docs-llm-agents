@@ -238,7 +238,7 @@
 - [Transaction fees](https://docs.xendit.co/docs/transaction-fees.md): Find clear information on Xendit's fees, billing reports, and fee deductions to ensure financial transparency and effective auditing of your transactions.
 - [Understanding your Xendit invoices](https://docs.xendit.co/docs/your-invoice.md)
 - [Invoice Settlement](https://docs.xendit.co/docs/how-to-pay-bills.md)
-- [Reconciling your Xendit Invoice](https://docs.xendit.co/docs/documentation-template-16.md)
+- [Reconciling your Xendit Invoice](https://docs.xendit.co/docs/reconciling-your-xendit-invoice.md)
 - [Value Added Tax (VAT)](https://docs.xendit.co/docs/value-added-tax-vat.md)
 - [Indonesia Withholding Tax](https://docs.xendit.co/docs/indonesia-withholding-tax.md)
 - [Philippines Withholding Tax](https://docs.xendit.co/docs/philippines-withholding-tax.md)
